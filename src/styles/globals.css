@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-orbitron: 'Orbitron', sans-serif;
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #0A0A0A 0%, #1a0a1a 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF006E, #FF8CC8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF8CC8, #FF006E);
+}
+
+/* Miami glow utilities */
+@layer utilities {
+  .glow-pink {
+    box-shadow: 0 0 20px #FF006E80;
+  }
+  
+  .glow-pink-strong {
+    box-shadow: 0 0 30px #FF006E, 0 0 60px #FF006E80;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px #FF006E80;
+  }
+  
+  .neon-border {
+    border: 2px solid #FF006E;
+    box-shadow: 0 0 10px #FF006E80, inset 0 0 10px #FF006E20;
+  }
+  
+  .glass-miami {
+    background: rgba(255, 0, 110, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 110, 0.2);
+  }
+}
