@@ -117,24 +117,8 @@ export default function Portfolio() {
           const direction = rowIndex % 2 === 0 ? -1 : 1
           const speed = 30 + rowIndex * 5 // Vitesse progressive
           
-          // Décalages et largeurs pour l'effet quinconce
-          const getStyles = (index: number) => {
-            if (index === 0 || index === 2) {
-              // Lignes 1 et 3 : commencent plus à gauche, finissent plus tôt
-              return {
-                marginLeft: '-200px',
-                width: 'calc(100vw - 100px)', // Plus courtes
-                overflow: 'hidden' as const,
-              }
-            } else {
-              // Ligne 2 : commence plus à droite, finit beaucoup plus à droite
-              return {
-                marginLeft: '200px',
-                width: 'calc(100vw + 200px)', // Déborde à droite
-                overflow: 'visible' as const, // Permet le débordement
-              }
-            }
-          }
+          // Calcul du décalage initial pour la ligne 2
+          const initialOffset = rowIndex === 1 ? 137 : 0 // 137px = demi-photo + demi-gap
           
           return (
             <motion.div
@@ -143,8 +127,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: rowIndex * 0.2 }}
-              className="relative"
-              style={getStyles(rowIndex)}
+              className="relative overflow-hidden"
             >
               {/* Container avec scroll infini CSS */}
               <div 
@@ -152,6 +135,7 @@ export default function Portfolio() {
                 style={{
                   width: `${extendedRow.length * (250 + 24)}px`, // 250px largeur + 24px gap
                   animation: `scroll-${direction > 0 ? 'right' : 'left'} ${speed}s linear infinite`,
+                  marginLeft: `${initialOffset}px`, // Décalage initial pour la ligne 2
                 }}
               >
                 {extendedRow.map((item, index) => (
