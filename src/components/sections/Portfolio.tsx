@@ -1,83 +1,99 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import MiamiButton from '@/components/ui/MiamiButton'
 
 export default function Portfolio() {
-  const [selectedCategory, setSelectedCategory] = useState('Tous')
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
-  const categories = ['Tous', 'Portrait', 'Mode', 'Corporate', 'Événement', 'Créatif']
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
+  // Portfolio avec 14 photos (4 + 5 + 5)
   const portfolioItems = [
-    {
-      id: 1,
-      title: "Élégance Corporate",
-      category: "Corporate",
-      image: "🎭",
-      gradient: "from-miami-pink to-purple-500",
-      description: "Shooting corporate pour dirigeante d'entreprise"
-    },
-    {
-      id: 2,
-      title: "Miami Nights",
-      category: "Mode",
-      image: "👑",
-      gradient: "from-purple-500 to-blue-500",
-      description: "Collection mode inspirée des nuits de Miami"
-    },
-    {
-      id: 3,
-      title: "Portrait Intimiste",
-      category: "Portrait",
-      image: "✨",
-      gradient: "from-pink-500 to-red-500",
-      description: "Séance portrait en lumière naturelle douce"
-    },
-    {
-      id: 4,
-      title: "Art Direction",
-      category: "Créatif",
-      image: "🎨",
-      gradient: "from-green-500 to-teal-500",
-      description: "Concept artistique pour campagne publicitaire"
-    },
-    {
-      id: 5,
-      title: "Gala de Mode",
-      category: "Événement",
-      image: "🌟",
-      gradient: "from-yellow-500 to-orange-500",
-      description: "Couverture événement fashion week parisienne"
-    },
-    {
-      id: 6,
-      title: "Duo Créatif",
-      category: "Portrait",
-      image: "💫",
-      gradient: "from-indigo-500 to-purple-500",
-      description: "Portrait duo avec mise en scène artistique"
-    }
+    // Ligne 1 - 4 photos
+    { id: 1, image: "/images/portfolio/photo-1.jpg" },
+    { id: 2, image: "/images/portfolio/photo-2.jpg" },
+    { id: 3, image: "/images/portfolio/photo-3.jpg" },
+    { id: 4, image: "/images/portfolio/photo-4.jpg" },
+
+    // Ligne 2 - 5 photos
+    { id: 5, image: "/images/portfolio/photo-5.jpg" },
+    { id: 6, image: "/images/portfolio/photo-6.jpg" },
+    { id: 7, image: "/images/portfolio/photo-7.jpg" },
+    { id: 8, image: "/images/portfolio/photo-8.jpg" },
+    { id: 9, image: "/images/portfolio/photo-9.jpg" },
+
+    // Ligne 3 - 5 photos
+    { id: 10, image: "/images/portfolio/photo-10.jpg" },
+    { id: 11, image: "/images/portfolio/photo-11.jpg" },
+    { id: 12, image: "/images/portfolio/photo-12.jpg" },
+    { id: 13, image: "/images/portfolio/photo-13.jpg" },
+    { id: 14, image: "/images/portfolio/photo-14.jpg" },
   ]
 
-  const filteredItems = selectedCategory === 'Tous' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === selectedCategory)
+  // Créer les lignes avec les bonnes tailles (4, 5, 5)
+  const createRows = (items: typeof portfolioItems) => {
+    const rows = []
+    // Première ligne : 4 photos
+    rows.push(items.slice(0, 4))
+    // Deuxième ligne : 5 photos
+    rows.push(items.slice(4, 9))
+    // Troisième ligne : 5 photos
+    rows.push(items.slice(9, 14))
+    return rows
+  }
+
+  const rows = createRows(portfolioItems)
+
+  const openLightbox = (imageIndex: number) => {
+    setSelectedImage(imageIndex)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
+
+  const nextImage = () => {
+    setSelectedImage((prev) => (prev + 1) % portfolioItems.length)
+  }
+
+  const prevImage = () => {
+    setSelectedImage((prev) => (prev - 1 + portfolioItems.length) % portfolioItems.length)
+  }
+
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return
+      if (e.key === 'Escape') closeLightbox()
+      if (e.key === 'ArrowRight') nextImage()
+      if (e.key === 'ArrowLeft') prevImage()
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [lightboxOpen])
+
+  if (!mounted) return null
 
   return (
-    <section id="portfolio" className="py-24 px-4 bg-gradient-to-b from-black to-miami-dark">
+    <section id="portfolio" className="py-16 sm:py-24 px-4 bg-gradient-to-b from-black to-miami-dark overflow-hidden">
+      {/* Header centré */}
       <div className="max-w-7xl mx-auto">
-        {/* Header avec effet parallax */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.h2 
-            className="font-display text-5xl md:text-7xl font-black mb-6"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6"
             style={{
               background: 'linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6)',
               backgroundClip: 'text',
@@ -87,114 +103,204 @@ export default function Portfolio() {
           >
             PORTFOLIO
           </motion.h2>
-          <p className="text-xl text-miami-pink-light max-w-3xl mx-auto leading-relaxed">
-            Explorez notre univers créatif où chaque image raconte une histoire unique, 
-            capturée avec notre signature Miami moderne
+          <p className="text-lg sm:text-xl text-miami-pink-light max-w-3xl mx-auto leading-relaxed px-4">
+            Nos créations dans un carrousel hypnotique
           </p>
         </motion.div>
+      </div>
 
-        {/* Filtres avec animations fluides */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-8 py-3 rounded-full font-medium transition-all duration-500 relative overflow-hidden ${
-                selectedCategory === category
-                  ? 'text-white shadow-2xl shadow-miami-pink/30'
-                  : 'text-miami-pink-light hover:text-white border border-miami-pink/30 hover:border-miami-pink'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+      {/* Carousel Grid Fluide en Quinconce - SANS container centré */}
+      <div className="space-y-8 sm:space-y-12 overflow-hidden">
+        {rows.map((row, rowIndex) => {
+          // Créer un tableau étendu pour le scroll infini
+          const extendedRow = [...row, ...row, ...row] // Triple pour plus de fluidité
+          const direction = rowIndex % 2 === 0 ? -1 : 1
+          const speed = 30 + rowIndex * 5 // Vitesse progressive
+          
+          // Décalages et largeurs pour l'effet quinconce
+          const getStyles = (index: number) => {
+            if (index === 0 || index === 2) {
+              // Lignes 1 et 3 : commencent plus à gauche, finissent plus tôt
+              return {
+                marginLeft: '-200px',
+                width: 'calc(100vw - 100px)', // Plus courtes
+                overflow: 'hidden' as const,
+              }
+            } else {
+              // Ligne 2 : commence plus à droite, finit beaucoup plus à droite
+              return {
+                marginLeft: '200px',
+                width: 'calc(100vw + 200px)', // Déborde à droite
+                overflow: 'visible' as const, // Permet le débordement
+              }
+            }
+          }
+          
+          return (
+            <motion.div
+              key={rowIndex}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: rowIndex * 0.2 }}
+              className="relative"
+              style={getStyles(rowIndex)}
             >
-              {selectedCategory === category && (
-                <motion.div
-                  layoutId="activeCategory"
-                  className="absolute inset-0 bg-gradient-to-r from-miami-pink to-miami-pink-light"
-                  transition={{ type: "spring", duration: 0.6 }}
-                />
-              )}
-              <span className="relative z-10">{category}</span>
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* Grille Portfolio avec animations sophistiquées */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="wait">
-            {filteredItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100
+              {/* Container avec scroll infini CSS */}
+              <div 
+                className="flex gap-6 will-change-transform"
+                style={{
+                  width: `${extendedRow.length * (250 + 24)}px`, // 250px largeur + 24px gap
+                  animation: `scroll-${direction > 0 ? 'right' : 'left'} ${speed}s linear infinite`,
                 }}
-                className="group relative"
-                onHoverStart={() => setHoveredItem(item.id)}
-                onHoverEnd={() => setHoveredItem(null)}
               >
-                <div className={`relative aspect-[4/5] rounded-2xl bg-gradient-to-br ${item.gradient} p-1 shadow-2xl group-hover:shadow-3xl transition-all duration-500`}>
-                  <div className="h-full w-full bg-black/90 rounded-xl overflow-hidden relative">
-                    {/* Image placeholder avec effet hover */}
-                    <div className="absolute inset-0 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform duration-700">
-                      {item.image}
+                {extendedRow.map((item, index) => (
+                  <motion.div
+                    key={`${item.id}-${index}`}
+                    className="group relative cursor-pointer flex-shrink-0"
+                    style={{ width: '250px', height: '320px' }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      zIndex: 10,
+                      transition: { duration: 0.2 }
+                    }}
+                    onClick={() => openLightbox(portfolioItems.findIndex(p => p.id === item.id))}
+                  >
+                    {/* Container de l'image */}
+                    <div className="relative w-full h-full rounded-2xl bg-gray-900 overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                      <img 
+                        src={item.image}
+                        alt={`Portfolio image ${item.id}`}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      
+                      {/* Overlay subtil au hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    
-                    {/* Overlay avec infos */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ 
-                        opacity: hoveredItem === item.id ? 1 : 0,
-                        y: hoveredItem === item.id ? 0 : 20
-                      }}
-                      className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6"
-                    >
-                      <span className="text-miami-pink text-sm font-medium mb-2 tracking-wide">
-                        {item.category}
-                      </span>
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-gray-300 text-sm mb-4">{item.description}</p>
-                      <MiamiButton variant="secondary" size="sm">
-                        Voir plus
-                      </MiamiButton>
-                    </motion.div>
-                  </div>
-                </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )
+        })}
+      </div>
 
-                {/* Effet de glow au hover */}
-                <motion.div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.gradient} blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10`}
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* CTA pour voir plus */}
+      {/* CTA centré */}
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-16"
+          transition={{ delay: 0.8 }}
+          className="text-center mt-16 sm:mt-20"
         >
           <MiamiButton variant="primary" size="lg" className="group">
-            Voir tout le portfolio
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            <span className="whitespace-nowrap">Voir tous nos projets</span>
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </MiamiButton>
         </motion.div>
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+            onClick={closeLightbox}
+          >
+            {/* Close button */}
+            <motion.button
+              className="absolute top-6 right-6 w-12 h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors z-10"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={closeLightbox}
+            >
+              <X className="w-6 h-6 text-white" />
+            </motion.button>
+
+            {/* Navigation buttons */}
+            <motion.button
+              className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={(e) => {
+                e.stopPropagation()
+                prevImage()
+              }}
+            >
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </motion.button>
+
+            <motion.button
+              className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={(e) => {
+                e.stopPropagation()
+                nextImage()
+              }}
+            >
+              <ChevronRight className="w-6 h-6 text-white" />
+            </motion.button>
+
+            {/* Image container */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-[80vh] mx-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full h-96 sm:h-[500px] rounded-2xl bg-gray-800 shadow-2xl overflow-hidden">
+                <div className="h-full w-full flex items-center justify-center">
+                  <img 
+                    src={portfolioItems[selectedImage]?.image}
+                    alt={`Portfolio image ${selectedImage + 1}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Image info */}
+              <div className="text-center mt-6">
+                <p className="text-gray-400 text-sm">
+                  {selectedImage + 1} / {portfolioItems.length}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* CSS pour les animations fluides */}
+      <style jsx>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+        
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-33.333%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        
+        /* Pause au hover pour interaction */
+        .group:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   )
 }
