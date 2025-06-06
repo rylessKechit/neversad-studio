@@ -72,7 +72,7 @@ export default function About() {
   return (
     <section id="about" className="py-24 px-4 relative overflow-hidden">
       {/* Background avec effets */}
-      <div className="absolute inset-0 bg-gradient-to-br from-miami-dark via-black to-miami-dark">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-miami-dark/50 to-black">
         {mounted && (
           <div className="absolute inset-0 opacity-20">
             {particlePositions.map((particle, i) => (
@@ -118,7 +118,7 @@ export default function About() {
             NOTRE STUDIO
           </motion.h2>
           <p className="text-xl text-miami-pink-light max-w-3xl mx-auto leading-relaxed">
-            Bienvenue dans l&apos;univers de Neversad Studio, où la photographie rencontre l&apos;art et l&apos;innovation
+            Bienvenue dans l'univers de Neversad Studio, où la photographie rencontre l'art et l'innovation
           </p>
         </motion.div>
 
@@ -137,14 +137,14 @@ export default function About() {
               </p>
               
               <p>
-                Notre approche combine l&apos;esthétique moderne de Miami avec une expertise technique de pointe. 
+                Notre approche combine l'esthétique moderne de Miami avec une expertise technique de pointe. 
                 Spécialisés dans le portrait, la photographie corporate et les événements, nous apportons 
                 une vision artistique fraîche à chaque projet.
               </p>
               
               <p>
                 Basés dans le 15ème arrondissement de Paris, notre studio de 200m² est équipé des dernières 
-                technologies et d&apos;un éclairage professionnel pour créer l&apos;ambiance parfaite pour vos photos.
+                technologies et d'un éclairage professionnel pour créer l'ambiance parfaite pour vos photos.
               </p>
             </div>
 

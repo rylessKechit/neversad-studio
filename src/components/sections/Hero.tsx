@@ -2,18 +2,17 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Camera, Star } from 'lucide-react'
+import { Camera, Star, ArrowDown, Heart, Award } from 'lucide-react'
 import MiamiButton from '@/components/ui/MiamiButton'
-import NeonGrid from '@/components/ui/NeonGrid'
 
 export default function Hero() {
   const [currentText, setCurrentText] = useState(0)
   const [mounted, setMounted] = useState(false)
   
   const heroTexts = [
-    "CAPTURER L'INSTANT",
-    "RÉVÉLER LA BEAUTÉ",
-    "CRÉER L'ÉMOTION"
+    "Capturer l'Émotion",
+    "Révéler la Beauté",
+    "Créer l'Instantané"
   ]
 
   // Fix hydration issue
@@ -26,103 +25,92 @@ export default function Hero() {
     
     const interval = setInterval(() => {
       setCurrentText((prev) => (prev + 1) % heroTexts.length)
-    }, 3000)
+    }, 4000)
     return () => clearInterval(interval)
-  }, [mounted, heroTexts.length]) // Ajout de heroTexts.length dans les dépendances
-
-  // Positions fixes pour éviter l'hydration mismatch
-  const particlePositions = [
-    { left: '10%', top: '20%' },
-    { left: '80%', top: '10%' },
-    { left: '15%', top: '60%' },
-    { left: '75%', top: '70%' },
-    { left: '40%', top: '15%' },
-    { left: '60%', top: '80%' },
-    { left: '25%', top: '40%' },
-    { left: '85%', top: '45%' },
-    { left: '5%', top: '85%' },
-    { left: '90%', top: '25%' },
-    { left: '35%', top: '75%' },
-    { left: '65%', top: '30%' },
-    { left: '20%', top: '90%' },
-    { left: '70%', top: '5%' },
-    { left: '45%', top: '55%' },
-    { left: '50%', top: '95%' },
-    { left: '95%', top: '60%' },
-    { left: '30%', top: '25%' },
-    { left: '55%', top: '85%' },
-    { left: '8%', top: '50%' }
-  ]
+  }, [mounted])
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background avec grid animé */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-miami-dark to-black" />
-        <NeonGrid animated density={40} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
-      </div>
-
-      {/* Particules flottantes - seulement après le mount */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-studio-cream">
+      {/* Background texture subtile */}
+      <div className="absolute inset-0 bg-texture-paper opacity-30"></div>
+      
+      {/* Floating elements subtils */}
       {mounted && (
-        <div className="absolute inset-0">
-          {particlePositions.map((position, i) => (
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 12 }, (_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-miami-pink rounded-full"
+              className="absolute w-2 h-2 bg-studio-coral/10 rounded-full"
               style={{
-                left: position.left,
-                top: position.top,
+                left: `${15 + (i * 7) % 70}%`,
+                top: `${20 + (i * 11) % 60}%`,
               }}
               animate={{
                 y: [0, -30, 0],
-                opacity: [0, 1, 0],
+                opacity: [0.3, 0.6, 0.3],
+                scale: [1, 1.2, 1],
               }}
               transition={{
-                duration: 3 + (i % 3),
+                duration: 6 + (i % 3),
                 repeat: Infinity,
-                delay: i * 0.2,
+                delay: i * 0.5,
+                ease: "easeInOut"
               }}
             />
           ))}
         </div>
       )}
       
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-        {/* Titre principal avec effet glitch */}
+      <div className="relative z-10 text-center px-6 max-w-7xl mx-auto">
+        {/* Badge de présentation */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="inline-flex items-center space-x-2 bg-glass-warm rounded-full px-6 py-3 mb-12 shadow-soft"
+        >
+          <Camera className="w-5 h-5 text-studio-coral" />
+          <span className="text-caption text-studio-coral">Studio Photo Premium</span>
+          <div className="w-2 h-2 bg-studio-coral rounded-full animate-pulse"></div>
+        </motion.div>
+
+        {/* Titre principal élégant */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
           className="mb-8"
         >
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-4">
-            <span className="block text-glow">NEVER</span>
+          <h1 className="heading-hero text-neutral-900 mb-6">
+            <span className="block">NEVER</span>
             <motion.span 
-              className="block text-miami-pink"
+              className="block text-warm"
               animate={{ 
-                textShadow: [
-                  '0 0 20px rgba(255, 0, 110, 0.5)',
-                  '0 0 40px rgba(255, 0, 110, 0.8)',
-                  '0 0 20px rgba(255, 0, 110, 0.5)'
-                ]
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
               }}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ 
+                duration: 8, 
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              style={{
+                backgroundSize: '200% 200%'
+              }}
             >
               SAD
             </motion.span>
           </h1>
-          <div className="text-lg md:text-xl font-display text-miami-pink-light tracking-[0.3em]">
-            STUDIO
+          <div className="font-accent-modern text-lg md:text-xl text-neutral-500 tracking-[0.2em]">
+            STUDIO PHOTOGRAPHIQUE
           </div>
         </motion.div>
 
-        {/* Sous-titre animé */}
+        {/* Sous-titre animé avec élégance */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mb-8"
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mb-12"
         >
           {mounted && (
             <AnimatePresence mode="wait">
@@ -131,54 +119,80 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="text-2xl md:text-3xl font-light text-miami-pink-light mb-4"
+                transition={{ duration: 0.6 }}
+                className="text-lead text-neutral-700 max-w-2xl mx-auto"
               >
                 {heroTexts[currentText]}
               </motion.p>
             </AnimatePresence>
           )}
-          <p className="text-lg text-gray-400">
-            Studio Photo Premium • Miami Vibes • Paris 15ème
+          <p className="mt-4 text-lg text-neutral-500 font-body-refined">
+            Portraits • Événements • Corporate • Création artistique
           </p>
         </motion.div>
         
-        {/* Boutons CTA */}
+        {/* Boutons CTA élégants */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+          transition={{ duration: 1, delay: 0.8 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
         >
-          <MiamiButton variant="primary" size="lg" className="group">
-            <Camera className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-            Réserver ma séance
-          </MiamiButton>
-          <MiamiButton variant="secondary" size="lg">
-            Découvrir le portfolio
-          </MiamiButton>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <button className="btn-studio text-white font-medium px-8 py-4 rounded-2xl inline-flex items-center space-x-3">
+              <Camera className="w-5 h-5" />
+              <span>Réserver une séance</span>
+            </button>
+          </motion.div>
+          
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <button className="btn-outline-studio font-medium px-8 py-4 rounded-2xl inline-flex items-center space-x-3">
+              <Heart className="w-5 h-5" />
+              <span>Découvrir nos réalisations</span>
+            </button>
+          </motion.div>
         </motion.div>
 
-        {/* Social proof */}
+        {/* Social proof élégant */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="mt-16 flex items-center justify-center space-x-8 text-sm text-gray-500"
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
-          <div className="flex items-center">
-            <Star className="w-4 h-4 text-miami-pink mr-1" />
-            <span>500+ clients satisfaits</span>
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Star className="w-5 h-5 text-studio-coral mr-2" />
+              <span className="font-display-elegant text-2xl text-neutral-800">500+</span>
+            </div>
+            <p className="text-sm text-neutral-600 font-body-refined">Clients satisfaits</p>
           </div>
-          <div className="w-px h-4 bg-gray-700" />
-          <div className="flex items-center">
-            <Camera className="w-4 h-4 text-miami-pink mr-1" />
-            <span>5 ans d&apos;expérience</span>
+          
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Award className="w-5 h-5 text-studio-coral mr-2" />
+              <span className="font-display-elegant text-2xl text-neutral-800">5 ans</span>
+            </div>
+            <p className="text-sm text-neutral-600 font-body-refined">D'expérience</p>
+          </div>
+          
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Camera className="w-5 h-5 text-studio-coral mr-2" />
+              <span className="font-display-elegant text-2xl text-neutral-800">Paris 15ème</span>
+            </div>
+            <p className="text-sm text-neutral-600 font-body-refined">Studio moderne</p>
           </div>
         </motion.div>
       </div>
 
-      {/* Indicateur de scroll simplifié */}
+      {/* Indicateur de scroll sophistiqué */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -187,15 +201,18 @@ export default function Hero() {
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-miami-pink rounded-full flex justify-center cursor-pointer"
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-8 h-12 border-2 border-studio-coral rounded-full flex justify-center cursor-pointer hover:border-studio-coral-dark transition-colors"
         >
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-miami-pink rounded-full mt-2"
+            animate={{ y: [0, 16, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-3 bg-studio-coral rounded-full mt-2"
           />
         </motion.div>
+        <div className="text-xs text-neutral-500 text-center mt-2 font-accent-modern tracking-wider">
+          DÉCOUVRIR
+        </div>
       </motion.div>
     </section>
   )

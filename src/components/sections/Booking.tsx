@@ -82,7 +82,7 @@ export default function Booking() {
           className="text-center"
         >
           <p className="text-miami-pink-light mb-6">
-            Besoin d&apos;un devis personnalisé ? Contactez-nous pour discuter de votre projet.
+            Besoin d'un devis personnalisé ? Contactez-nous pour discuter de votre projet.
           </p>
           <MiamiButton variant="primary">
             Demander un devis
