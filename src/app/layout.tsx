@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Orbitron } from 'next/font/google'
+import { Inter, Playfair_Display, Montserrat } from 'next/font/google'
 import '../styles/globals.css'
 
 const inter = Inter({ 
@@ -8,31 +8,38 @@ const inter = Inter({
   display: 'swap',
 })
 
-const orbitron = Orbitron({ 
+const playfair = Playfair_Display({ 
   subsets: ['latin'],
-  variable: '--font-orbitron',
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: 'Neversad Studio - Photography Miami Style | Paris 15ème',
-  description: 'Studio photo premium avec aesthetic Miami Vice rose néon. Spécialisé dans le portrait, corporate et événements. Réservez votre séance photo à Paris.',
+  title: 'Neversad Studio - Photographie Élégante | Paris 15ème',
+  description: 'Studio photo premium spécialisé dans le portrait, les événements et la photographie corporate. Approche artistique moderne dans le 15ème arrondissement de Paris.',
   keywords: [
     'studio photo paris',
     'photographe portrait paris',
     'photo corporate paris',
-    'séance photo miami style',
+    'photographie élégante',
     'studio photo 15ème',
     'photographe professionnel',
-    'photo événement paris'
+    'photo événement paris',
+    'séance photo artistique'
   ],
   authors: [{ name: 'Neversad Studio' }],
   creator: 'Neversad Studio',
   publisher: 'Neversad Studio',
   openGraph: {
-    title: 'Neversad Studio - Photography Miami Style',
-    description: 'Studio photo premium avec aesthetic Miami moderne. Capturez vos moments avec style.',
+    title: 'Neversad Studio - Photographie Élégante',
+    description: 'Studio photo premium avec une approche artistique moderne. Capturez vos moments avec élégance.',
     url: 'http://localhost:3000',
     siteName: 'Neversad Studio',
     images: [
@@ -40,7 +47,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Neversad Studio - Photography Miami Style',
+        alt: 'Neversad Studio - Photographie Élégante',
       },
     ],
     locale: 'fr_FR',
@@ -48,8 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neversad Studio - Photography Miami Style',
-    description: 'Studio photo premium avec aesthetic Miami moderne',
+    title: 'Neversad Studio - Photographie Élégante',
+    description: 'Studio photo premium avec une approche artistique moderne',
     images: ['/twitter-image.jpg'],
     creator: '@neversadstudio',
   },
@@ -72,13 +79,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${orbitron.variable}`}>
+    <html lang="fr" className={`${inter.variable} ${playfair.variable} ${montserrat.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#FF006E" />
+        <meta name="theme-color" content="#FF6B9D" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
-      <body className="bg-miami-dark text-miami-white antialiased">
+      <body className="bg-neutral-50 text-neutral-900 antialiased">
         <div className="min-h-screen flex flex-col">
           {children}
         </div>

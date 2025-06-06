@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Camera, Menu, X, Instagram, Phone } from 'lucide-react'
+import { Camera, Menu, X, Instagram, Phone, Mail } from 'lucide-react'
 import MiamiButton from '@/components/ui/MiamiButton'
 
 export default function Navigation() {
@@ -31,30 +31,29 @@ export default function Navigation() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-black/95 backdrop-blur-xl border-b border-miami-pink/20 shadow-lg shadow-miami-pink/10' 
+          ? 'glass-studio shadow-soft border-b border-white/20' 
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container-studio">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo élégant */}
           <motion.a
             href="#home"
             className="flex items-center space-x-3 group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-miami-pink to-miami-pink-light rounded-xl flex items-center justify-center shadow-lg shadow-miami-pink/25 group-hover:shadow-miami-pink/50 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-studio-coral to-studio-miami rounded-2xl flex items-center justify-center shadow-coral group-hover:shadow-lg transition-all duration-300">
                 <Camera className="w-6 h-6 text-white" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-miami-pink to-miami-pink-light rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
             </div>
-            <div className="font-display">
-              <div className="text-2xl font-black text-glow">
-                NEVER<span className="text-miami-pink">SAD</span>
+            <div className="font-display-elegant">
+              <div className="text-2xl font-semibold text-neutral-900">
+                NEVER<span className="text-warm">SAD</span>
               </div>
-              <div className="text-xs text-miami-pink-light tracking-widest">STUDIO</div>
+              <div className="text-xs text-neutral-500 font-accent-modern tracking-wider">STUDIO</div>
             </div>
           </motion.a>
 
@@ -64,15 +63,15 @@ export default function Navigation() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="relative text-white hover:text-miami-pink transition-colors duration-300 font-medium"
+                className="relative text-neutral-700 hover:text-studio-coral transition-colors duration-300 font-medium py-2"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -2 }}
               >
                 {item.label}
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-miami-pink to-miami-pink-light"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-studio-coral to-studio-miami"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
@@ -81,21 +80,32 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA & Social */}
+          {/* Contact & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <motion.a
               href="tel:+33123456789"
-              className="text-miami-pink hover:text-miami-pink-light transition-colors"
+              className="text-studio-coral hover:text-studio-coral-dark transition-colors p-2 rounded-xl hover:bg-studio-coral/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              title="Appelez-nous"
             >
               <Phone className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://instagram.com"
-              className="text-miami-pink hover:text-miami-pink-light transition-colors"
+              href="mailto:hello@neversadstudio.com"
+              className="text-studio-coral hover:text-studio-coral-dark transition-colors p-2 rounded-xl hover:bg-studio-coral/5"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              title="Écrivez-nous"
+            >
+              <Mail className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              href="https://instagram.com"
+              className="text-studio-coral hover:text-studio-coral-dark transition-colors p-2 rounded-xl hover:bg-studio-coral/5"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              title="Instagram"
             >
               <Instagram className="w-5 h-5" />
             </motion.a>
@@ -108,7 +118,7 @@ export default function Navigation() {
           <div className="lg:hidden">
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-white hover:text-miami-pink transition-colors"
+              className="p-2 text-neutral-700 hover:text-studio-coral transition-colors rounded-xl hover:bg-studio-coral/5"
               whileTap={{ scale: 0.95 }}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -123,14 +133,14 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden"
+            className="lg:hidden overflow-hidden glass-warm rounded-2xl mt-4 mb-4"
           >
-            <div className="py-4 space-y-4 border-t border-miami-pink/20">
+            <div className="py-6 px-6 space-y-4">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.href}
                   href={item.href}
-                  className="block text-white hover:text-miami-pink transition-colors font-medium"
+                  className="block text-neutral-700 hover:text-studio-coral transition-colors font-medium py-2"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -139,7 +149,19 @@ export default function Navigation() {
                   {item.label}
                 </motion.a>
               ))}
-              <div className="pt-4 border-t border-miami-pink/20">
+              
+              <div className="pt-4 border-t border-neutral-200/50 space-y-4">
+                <div className="flex space-x-4">
+                  <a href="tel:+33123456789" className="text-studio-coral hover:text-studio-coral-dark transition-colors">
+                    <Phone className="w-5 h-5" />
+                  </a>
+                  <a href="mailto:hello@neversadstudio.com" className="text-studio-coral hover:text-studio-coral-dark transition-colors">
+                    <Mail className="w-5 h-5" />
+                  </a>
+                  <a href="https://instagram.com" className="text-studio-coral hover:text-studio-coral-dark transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
                 <MiamiButton variant="primary" className="w-full">
                   Réserver maintenant
                 </MiamiButton>

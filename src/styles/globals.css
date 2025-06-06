@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,10 @@
 
 :root {
   --font-inter: 'Inter', sans-serif;
-  --font-orbitron: 'Orbitron', sans-serif;
-  --background: #0A0A0A;
-  --foreground: #FFFFFF;
-  --miami-pink: #FF006E;
-  --miami-pink-light: #FF8CC8;
-  --miami-pink-glow: rgba(255, 0, 110, 0.5);
+  --font-playfair: 'Playfair Display', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --background: #FAFAFA;
+  --foreground: #171717;
 }
 
 * {
@@ -22,248 +20,288 @@
 
 html {
   scroll-behavior: smooth;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-inter);
-  background: linear-gradient(135deg, #0A0A0A 0%, #1a0a1a 50%, #0A0A0A 100%);
-  background-attachment: fixed;
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+  color: var(--foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar avec style Miami */
+/* Scrollbar Miami élégant */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 10, 10, 0.9);
-  border-radius: 5px;
+  background: rgba(245, 245, 245, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--miami-pink), var(--miami-pink-light));
-  border-radius: 5px;
-  box-shadow: 0 0 10px var(--miami-pink-glow);
+  background: linear-gradient(180deg, #FF6B9D, #00D4FF);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--miami-pink-light), var(--miami-pink));
-  box-shadow: 0 0 20px var(--miami-pink-glow);
+  background: linear-gradient(180deg, #E55A8A, #00B8E6);
 }
 
-/* Selection styling */
+/* Sélection de texte */
 ::selection {
-  background: var(--miami-pink-glow);
-  color: white;
+  background: rgba(255, 107, 157, 0.2);
+  color: #E55A8A;
 }
 
 ::-moz-selection {
-  background: var(--miami-pink-glow);
-  color: white;
+  background: rgba(255, 107, 157, 0.2);
+  color: #E55A8A;
 }
 
-/* Focus states */
+/* Focus states professionnels */
 :focus {
   outline: none;
 }
 
 :focus-visible {
-  outline: 2px solid var(--miami-pink);
+  outline: 2px solid #FF6B9D;
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Miami glow utilities étendues */
+/* Styles utilitaires pour studio photo */
 @layer utilities {
-  .glow-pink-low {
-    box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
-  }
-  
-  .glow-pink {
-    box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
-  }
-  
-  .glow-pink-strong {
-    box-shadow: 0 0 30px rgba(255, 0, 110, 0.8), 0 0 60px rgba(255, 0, 110, 0.4);
-  }
-  
-  .glow-pink-xl {
-    box-shadow: 0 0 40px rgba(255, 0, 110, 0.6), 0 0 80px rgba(255, 0, 110, 0.3), 0 0 120px rgba(255, 0, 110, 0.1);
-  }
-  
-  .text-glow {
-    text-shadow: 0 0 10px rgba(255, 0, 110, 0.8), 0 0 20px rgba(255, 0, 110, 0.5);
-  }
-  
-  .text-glow-strong {
-    text-shadow: 
-      0 0 5px rgba(255, 0, 110, 1),
-      0 0 10px rgba(255, 0, 110, 0.8),
-      0 0 20px rgba(255, 0, 110, 0.6),
-      0 0 40px rgba(255, 0, 110, 0.4);
-  }
-  
-  .neon-border {
-    border: 2px solid var(--miami-pink);
+  /* Effets d'ombre sophistiqués */
+  .shadow-photo {
     box-shadow: 
-      0 0 10px var(--miami-pink-glow), 
-      inset 0 0 10px rgba(255, 0, 110, 0.2);
+      0 4px 20px -2px rgba(0, 0, 0, 0.08),
+      0 2px 8px -2px rgba(0, 0, 0, 0.04);
   }
   
-  .neon-border-animated {
-    border: 2px solid var(--miami-pink);
+  .shadow-portrait {
     box-shadow: 
-      0 0 10px var(--miami-pink-glow), 
-      inset 0 0 10px rgba(255, 0, 110, 0.2);
-    animation: glow-pulse 2s ease-in-out infinite alternate;
+      0 10px 40px -10px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
   }
   
-  .glass-miami {
-    background: rgba(255, 0, 110, 0.1);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 0, 110, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-  
-  .glass-miami-strong {
-    background: rgba(255, 0, 110, 0.15);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 0, 110, 0.3);
+  .shadow-gallery {
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(255, 0, 110, 0.2);
+      0 20px 60px -10px rgba(0, 0, 0, 0.2),
+      0 8px 20px -5px rgba(0, 0, 0, 0.1);
   }
   
-  .gradient-text-miami {
-    background: linear-gradient(45deg, #ff0080, #ff4da6, #ff80cc);
+  /* Effets de texte Miami élégants */
+  .text-warm {
+    background: linear-gradient(135deg, #FF6B9D, #00D4FF);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
   }
   
-  .gradient-border-miami {
-    background: linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6) padding-box,
-                linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6) border-box;
-    border: 2px solid transparent;
+  .text-miami {
+    background: linear-gradient(135deg, #00D4FF, #5CE1FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
   
-  /* Animations personnalisées */
-  .animate-float-slow {
-    animation: float 8s ease-in-out infinite;
+  .text-elegant {
+    background: linear-gradient(135deg, #2C2C2E, #48484A);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
   
-  .animate-glow-pulse {
-    animation: glow-pulse 3s ease-in-out infinite alternate;
+  /* Effets glass sophistiqués */
+  .glass-studio {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
   
-  .animate-gradient-x {
-    animation: gradient-x 15s ease infinite;
-    background-size: 400% 400%;
+  .glass-warm {
+    background: rgba(255, 248, 249, 0.9);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 107, 157, 0.2);
   }
   
-  .animate-gradient-y {
-    animation: gradient-y 15s ease infinite;
-    background-size: 400% 400%;
+  /* Overlay pour photos */
+  .photo-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 107, 157, 0.1) 0%,
+      rgba(0, 212, 255, 0.05) 50%,
+      rgba(255, 107, 157, 0.1) 100%
+    );
   }
   
-  /* Hover effects */
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Effets hover professionnels */
+  .hover-lift-gentle {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .hover-lift:hover {
+  .hover-lift-gentle:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
   }
   
-  .hover-glow:hover {
-    box-shadow: 0 0 30px rgba(255, 0, 110, 0.6);
-    transition: box-shadow 0.3s ease;
+  /* Animation shimmer pour les photos */
+  .shimmer-effect {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s ease-in-out infinite;
   }
   
-  /* Responsive text sizing */
-  .text-responsive-xl {
-    font-size: clamp(2rem, 5vw, 4rem);
+  /* Boutons Miami élégants */
+  .btn-studio {
+    background: linear-gradient(135deg, #FF6B9D 0%, #00D4FF 100%);
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    transition: all 0.3s ease;
   }
   
-  .text-responsive-lg {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  .btn-studio:hover {
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+    transform: translateY(-2px);
   }
   
-  .text-responsive-md {
-    font-size: clamp(1rem, 3vw, 1.5rem);
+  .btn-outline-studio {
+    border: 2px solid #FF6B9D;
+    color: #FF6B9D;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-studio:hover {
+    background: #FF6B9D;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+  }
+  
+  /* Typography raffinée */
+  .font-display-elegant {
+    font-family: var(--font-playfair);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  
+  .font-body-refined {
+    font-family: var(--font-inter);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.7;
+  }
+  
+  .font-accent-modern {
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 }
 
-/* Custom components */
+/* Composants professionnels */
 @layer components {
-  .btn-miami {
-    @apply px-6 py-3 bg-gradient-to-r from-miami-pink to-miami-pink-light text-white font-semibold rounded-xl shadow-lg shadow-miami-pink/25 hover:shadow-miami-pink/40 hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300;
+  .card-portfolio {
+    @apply bg-white rounded-3xl p-8 shadow-photo hover:shadow-portrait hover-lift-gentle;
   }
   
-  .card-miami {
-    @apply glass-miami rounded-2xl p-6 hover:glass-miami-strong hover-lift;
+  .card-service {
+    @apply glass-studio rounded-4xl p-10 hover:shadow-coral transition-all duration-500;
   }
   
-  .input-miami {
-    @apply bg-black/50 border border-miami-pink/30 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 transition-all duration-300;
+  .input-studio {
+    @apply bg-white/90 border-2 border-neutral-200 rounded-2xl px-6 py-4 
+           text-neutral-700 placeholder-neutral-400 
+           focus:border-studio-coral focus:ring-4 focus:ring-studio-coral/10 
+           transition-all duration-300 font-body-refined;
+  }
+  
+  .text-caption {
+    @apply font-accent-modern text-sm text-studio-coral tracking-wider;
+  }
+  
+  .section-padding {
+    @apply py-24 lg:py-32 px-6 lg:px-8;
+  }
+  
+  .container-studio {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .heading-hero {
+    @apply font-display-elegant text-6xl md:text-7xl lg:text-8xl xl:text-9xl;
+  }
+  
+  .heading-section {
+    @apply font-display-elegant text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  .text-lead {
+    @apply font-body-refined text-xl md:text-2xl text-neutral-600 leading-relaxed;
+  }
+  
+  .text-caption {
+    @apply font-accent-modern text-sm text-studio-coral tracking-wider;
   }
 }
 
-/* Keyframes pour les animations personnalisées */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
-}
-
-@keyframes glow-pulse {
-  from { 
-    box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
-    text-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+/* Animations personnalisées */
+@keyframes photoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.05) translateY(20px);
+    filter: blur(10px);
   }
-  to { 
-    box-shadow: 0 0 40px rgba(255, 0, 110, 0.8), 0 0 80px rgba(255, 0, 110, 0.4);
-    text-shadow: 0 0 20px rgba(255, 0, 110, 0.8), 0 0 40px rgba(255, 0, 110, 0.5);
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
   }
 }
 
-@keyframes gradient-x {
+@keyframes floatGentle {
   0%, 100% {
-    transform: translateX(-50%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateX(0);
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
+    transform: translateY(-10px);
   }
 }
 
-@keyframes gradient-y {
-  0%, 100% {
-    transform: translateY(-50%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
   }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  100% {
+    background-position: 200% 0;
   }
 }
 
-/* Responsive design helpers */
+/* Responsive optimizations */
 @media (max-width: 768px) {
-  .text-glow {
-    text-shadow: 0 0 5px rgba(255, 0, 110, 0.8);
+  .heading-hero {
+    @apply text-5xl;
   }
   
-  .glow-pink-strong {
-    box-shadow: 0 0 20px rgba(255, 0, 110, 0.6);
+  .heading-section {
+    @apply text-3xl;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4;
   }
 }
 
-/* Performance optimizations */
+/* Performance */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

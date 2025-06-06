@@ -3,11 +3,10 @@
 import { ReactNode } from 'react'
 import { motion, HTMLMotionProps } from 'framer-motion'
 
-interface MiamiButtonProps extends HTMLMotionProps<'button'> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
+interface StudioButtonProps extends HTMLMotionProps<'button'> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg' | 'xl'
   icon?: React.ReactNode
-  glowIntensity?: 'low' | 'medium' | 'high'
   children: ReactNode
 }
 
@@ -15,11 +14,10 @@ export default function MiamiButton({
   variant = 'primary', 
   size = 'md',
   icon,
-  glowIntensity = 'medium',
   children, 
   className = '',
   ...props 
-}: MiamiButtonProps) {
+}: StudioButtonProps) {
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
@@ -28,42 +26,38 @@ export default function MiamiButton({
   }
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-miami-pink to-miami-pink-light text-white shadow-lg shadow-miami-pink/25 hover:shadow-miami-pink/40 hover:shadow-xl border-0',
-    secondary: 'border-2 border-miami-pink text-miami-pink hover:bg-miami-pink hover:text-white hover:shadow-lg hover:shadow-miami-pink/25 bg-transparent',
-    ghost: 'text-miami-pink hover:text-miami-pink-light hover:bg-miami-pink/10 border-0 bg-transparent',
-    outline: 'border border-miami-pink/50 text-miami-pink-light hover:border-miami-pink hover:text-miami-pink hover:bg-miami-pink/5 bg-transparent'
+    primary: 'bg-gradient-to-r from-studio-coral to-studio-miami text-white shadow-coral hover:shadow-lg border-0 font-medium',
+    secondary: 'bg-white/90 backdrop-blur-sm text-studio-coral border-2 border-studio-coral/20 hover:border-studio-coral hover:bg-studio-coral hover:text-white shadow-soft',
+    outline: 'border-2 border-studio-coral text-studio-coral hover:bg-studio-coral hover:text-white bg-transparent font-medium',
+    ghost: 'text-studio-coral hover:text-studio-coral-dark hover:bg-studio-coral/5 border-0 bg-transparent'
   }
   
-  const glowClasses = {
-    low: 'hover:shadow-miami-glow',
-    medium: 'hover:glow-pink',
-    high: 'hover:glow-pink-strong'
-  }
-  
-  const baseClasses = 'font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
+  const baseClasses = 'font-medium rounded-2xl transition-all duration-300 inline-flex items-center justify-center relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-studio-coral/20'
   
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${glowClasses[glowIntensity]} ${className}`}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       {...props}
     >
-      {/* Gradient overlay effect pour primary */}
+      {/* Effet shimmer pour primary */}
       {variant === 'primary' && (
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-miami-pink-light to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+          initial={{ x: '-100%' }}
+          whileHover={{ x: '100%' }}
+        />
+      )}
+      
+      {/* Effet de profondeur pour secondary */}
+      {variant === 'secondary' && (
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-studio-coral/10 to-studio-miami/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
         />
       )}
-      
-      {/* Ripple effect */}
-      <motion.div
-        className="absolute inset-0 bg-white/20 scale-0 rounded-xl group-active:scale-100 transition-transform duration-200"
-        initial={{ scale: 0 }}
-        whileTap={{ scale: 1 }}
-      />
       
       {/* Content */}
       <span className="relative z-10 flex items-center">
