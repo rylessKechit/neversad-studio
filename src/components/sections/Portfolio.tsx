@@ -17,24 +17,24 @@ export default function Portfolio() {
   // Portfolio avec 14 photos (4 + 5 + 5)
   const portfolioItems = [
     // Ligne 1 - 4 photos
-    { id: 1, image: "/images/portfolio/photo-1.jpg" },
-    { id: 2, image: "/images/portfolio/photo-2.jpg" },
-    { id: 3, image: "/images/portfolio/photo-3.jpg" },
-    { id: 4, image: "/images/portfolio/photo-4.jpg" },
+    { id: 1, image: "/images/portfolio/photo-1.JPG" },
+    { id: 2, image: "/images/portfolio/photo-2.JPG" },
+    { id: 3, image: "/images/portfolio/photo-3.JPG" },
+    { id: 4, image: "/images/portfolio/photo-4.JPG" },
 
     // Ligne 2 - 5 photos
-    { id: 5, image: "/images/portfolio/photo-5.jpg" },
-    { id: 6, image: "/images/portfolio/photo-6.jpg" },
-    { id: 7, image: "/images/portfolio/photo-7.jpg" },
-    { id: 8, image: "/images/portfolio/photo-8.jpg" },
-    { id: 9, image: "/images/portfolio/photo-9.jpg" },
+    { id: 5, image: "/images/portfolio/photo-5.JPG" },
+    { id: 6, image: "/images/portfolio/photo-6.JPG" },
+    { id: 7, image: "/images/portfolio/photo-7.JPG" },
+    { id: 8, image: "/images/portfolio/photo-8.JPG" },
+    { id: 9, image: "/images/portfolio/photo-9.JPG" },
 
     // Ligne 3 - 5 photos
-    { id: 10, image: "/images/portfolio/photo-10.jpg" },
-    { id: 11, image: "/images/portfolio/photo-11.jpg" },
-    { id: 12, image: "/images/portfolio/photo-12.jpg" },
-    { id: 13, image: "/images/portfolio/photo-13.jpg" },
-    { id: 14, image: "/images/portfolio/photo-14.jpg" },
+    { id: 10, image: "/images/portfolio/photo-10.JPG" },
+    { id: 11, image: "/images/portfolio/photo-11.JPG" },
+    { id: 12, image: "/images/portfolio/photo-12.JPG" },
+    { id: 13, image: "/images/portfolio/photo-13.JPG" },
+    { id: 14, image: "/images/portfolio/photo-14.JPG" },
   ]
 
   // Créer les lignes avec les bonnes tailles (4, 5, 5)
