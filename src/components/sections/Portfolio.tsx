@@ -84,8 +84,8 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-16 sm:py-24 px-4 bg-gradient-to-b from-black to-miami-dark overflow-hidden">
-      {/* Header centré */}
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,71 +107,65 @@ export default function Portfolio() {
             Nos créations dans un carrousel hypnotique
           </p>
         </motion.div>
-      </div>
 
-      {/* Carousel Grid Fluide en Quinconce - SANS container centré */}
-      <div className="space-y-8 sm:space-y-12 overflow-hidden">
-        {rows.map((row, rowIndex) => {
-          // Créer un tableau étendu pour le scroll infini
-          const extendedRow = [...row, ...row, ...row] // Triple pour plus de fluidité
-          const direction = rowIndex % 2 === 0 ? -1 : 1
-          const speed = 30 + rowIndex * 5 // Vitesse progressive
-          
-          // Calcul du décalage initial pour la ligne 2
-          const initialOffset = rowIndex === 1 ? 137 : 0 // 137px = demi-photo + demi-gap
-          
-          return (
-            <motion.div
-              key={rowIndex}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: rowIndex * 0.2 }}
-              className="relative overflow-hidden"
-            >
-              {/* Container avec scroll infini CSS */}
-              <div 
-                className="flex gap-6 will-change-transform"
-                style={{
-                  width: `${extendedRow.length * (250 + 24)}px`, // 250px largeur + 24px gap
-                  animation: `scroll-${direction > 0 ? 'right' : 'left'} ${speed}s linear infinite`,
-                  marginLeft: `${initialOffset}px`, // Décalage initial pour la ligne 2
-                }}
+        {/* Carousel Grid Fluide */}
+        <div className="space-y-8 sm:space-y-12">
+          {rows.map((row, rowIndex) => {
+            // Créer un tableau étendu pour le scroll infini
+            const extendedRow = [...row, ...row, ...row] // Triple pour plus de fluidité
+            const direction = rowIndex % 2 === 0 ? -1 : 1
+            const speed = 30 + rowIndex * 5 // Vitesse progressive
+            
+            return (
+              <motion.div
+                key={rowIndex}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: rowIndex * 0.2 }}
+                className="relative overflow-hidden"
               >
-                {extendedRow.map((item, index) => (
-                  <motion.div
-                    key={`${item.id}-${index}`}
-                    className="group relative cursor-pointer flex-shrink-0"
-                    style={{ width: '250px', height: '320px' }}
-                    whileHover={{ 
-                      scale: 1.05, 
-                      zIndex: 10,
-                      transition: { duration: 0.2 }
-                    }}
-                    onClick={() => openLightbox(portfolioItems.findIndex(p => p.id === item.id))}
-                  >
-                    {/* Container de l'image */}
-                    <div className="relative w-full h-full rounded-2xl bg-gray-900 overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300">
-                      <img 
-                        src={item.image}
-                        alt={`Portfolio image ${item.id}`}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      
-                      {/* Overlay subtil au hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )
-        })}
-      </div>
+                {/* Container avec scroll infini CSS */}
+                <div 
+                  className="flex gap-6 will-change-transform"
+                  style={{
+                    width: `${extendedRow.length * (250 + 24)}px`, // 250px largeur + 24px gap
+                    animation: `scroll-${direction > 0 ? 'right' : 'left'} ${speed}s linear infinite`,
+                  }}
+                >
+                  {extendedRow.map((item, index) => (
+                    <motion.div
+                      key={`${item.id}-${index}`}
+                      className="group relative cursor-pointer flex-shrink-0"
+                      style={{ width: '250px', height: '320px' }}
+                      whileHover={{ 
+                        scale: 1.05, 
+                        zIndex: 10,
+                        transition: { duration: 0.2 }
+                      }}
+                      onClick={() => openLightbox(portfolioItems.findIndex(p => p.id === item.id))}
+                    >
+                      {/* Container de l'image */}
+                      <div className="relative w-full h-full rounded-2xl bg-gray-900 overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                        <img 
+                          src={item.image}
+                          alt={`Portfolio image ${item.id}`}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        
+                        {/* Overlay subtil au hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
 
-      {/* CTA centré */}
-      <div className="max-w-7xl mx-auto">
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
