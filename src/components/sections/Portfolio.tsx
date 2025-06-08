@@ -103,7 +103,7 @@ export default function Portfolio() {
           >
             PORTFOLIO
           </motion.h2>
-          <p className="text-lg sm:text-xl text-miami-pink-light max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl text-miami-blue-light max-w-3xl mx-auto leading-relaxed px-4">
             Nos créations dans un carrousel hypnotique
           </p>
         </motion.div>

@@ -120,7 +120,7 @@ export default function Contact() {
           >
             CONTACT
           </motion.h2>
-          <p className="text-xl text-miami-pink-light max-w-3xl mx-auto">
+          <p className="text-xl text-miami-blue-light max-w-3xl mx-auto">
             Prêt à capturer vos moments les plus précieux ? Contactez-nous pour discuter de votre projet
           </p>
         </motion.div>

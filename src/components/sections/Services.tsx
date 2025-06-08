@@ -125,7 +125,7 @@ export default function Services() {
           >
             NOS SERVICES
           </motion.h2>
-          <p className="text-xl text-miami-pink-light max-w-3xl mx-auto">
+          <p className="text-xl text-miami-blue-light max-w-3xl mx-auto">
             Des prestations premium pensées pour révéler votre personnalité avec notre signature Miami moderne
           </p>
         </motion.div>
@@ -263,7 +263,7 @@ export default function Services() {
                 Projet sur-mesure ?
               </h3>
               
-              <p className="text-xl text-miami-pink-light mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xl text-miami-blue-light mb-8 max-w-2xl mx-auto leading-relaxed">
                 Chaque projet est unique. Discutons de votre vision et créons ensemble 
                 une expérience photographique qui vous ressemble.
               </p>

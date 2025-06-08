@@ -22,6 +22,18 @@ module.exports = {
           'slate': '#48484A',     // Gris ardoise
           'pearl': '#F2F2F7',     // Blanc nacré
         },
+
+        // Couleurs Miami pour le thème néon
+        'miami': {
+          'pink': '#FF006E',        // Rose néon principal
+          'pink-light': '#FF4DA6',  // Rose néon clair
+          'pink-dark': '#E5005C',   // Rose néon foncé
+          'blue': '#00D4FF',        // Bleu cyan Miami
+          'blue-light': '#5CE1FF',  // Bleu cyan clair
+          'blue-dark': '#00B8E6',   // Bleu cyan foncé
+          'dark': '#0A0A0A',        // Noir profond
+          'grid': '#1A1A1A',        // Couleur grille
+        },
         
         // Tons neutres professionnels
         'neutral': {
