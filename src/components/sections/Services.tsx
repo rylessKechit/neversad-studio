@@ -51,7 +51,7 @@ export default function Services() {
     },
     {
       id: 3,
-      name: "Événement Miami",
+      name: "Événement Premium",
       price: "500",
       originalPrice: "650",
       duration: "4h",
@@ -81,13 +81,13 @@ export default function Services() {
   return (
     <section id="services" className="py-12 sm:py-16 md:py-24 px-4 relative overflow-hidden">
       {/* Background avec effet de particules - Responsive */}
-      <div className="absolute inset-0 bg-gradient-to-br from-miami-dark via-black to-miami-dark">
+      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-black to-neutral-900">
         {mounted && (
           <div className="absolute inset-0 opacity-20 sm:opacity-30">
             {particlePositions.map((particle, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-miami-pink rounded-full"
+                className="absolute w-1 h-1 bg-studio-coral rounded-full"
                 style={{
                   left: particle.left,
                   top: particle.top,
@@ -126,8 +126,8 @@ export default function Services() {
           >
             NOS SERVICES
           </motion.h2>
-          <p className="text-base sm:text-lg md:text-xl text-miami-blue-light max-w-3xl mx-auto px-4">
-            Des prestations premium pensées pour révéler votre personnalité avec notre signature Miami moderne
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+            Des prestations premium pensées pour révéler votre personnalité avec notre signature moderne unique
           </p>
         </motion.div>
 
@@ -168,7 +168,7 @@ export default function Services() {
                   
                   {/* Background pattern */}
                   <div className="absolute inset-0 opacity-5">
-                    <div className="absolute inset-0 bg-miami-grid"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-studio-coral/10 to-purple-500/10"></div>
                   </div>
 
                   {/* Header du service - Responsive */}
@@ -191,7 +191,7 @@ export default function Services() {
                     <div className="mb-3 sm:mb-4">
                       <div className="flex items-center justify-center gap-2 sm:gap-3">
                         <motion.span
-                          className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-miami-pink to-miami-pink-light bg-clip-text text-transparent"
+                          className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-studio-coral to-purple-500 bg-clip-text text-transparent"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
                           transition={{ type: "spring", delay: 0.3 }}
@@ -202,7 +202,7 @@ export default function Services() {
                           {service.originalPrice}€
                         </span>
                       </div>
-                      <div className="text-miami-pink-light text-xs sm:text-sm">
+                      <div className="text-gray-400 text-xs sm:text-sm">
                         Durée: {service.duration}
                       </div>
                     </div>
@@ -252,27 +252,27 @@ export default function Services() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-r from-miami-pink via-purple-500 to-blue-500"
+          className="relative rounded-2xl sm:rounded-3xl p-1 bg-gradient-to-r from-studio-coral via-purple-500 to-blue-500"
         >
           <div className="bg-black/95 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
             {/* Background effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-miami-pink/5 to-purple-500/5" />
+            <div className="absolute inset-0 bg-gradient-to-br from-studio-coral/5 to-purple-500/5" />
             
             <div className="relative z-10">
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ type: "spring", delay: 0.3 }}
-                className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 bg-gradient-to-br from-miami-pink to-purple-500 rounded-2xl sm:rounded-3xl flex items-center justify-center"
+                className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 sm:mb-8 bg-gradient-to-br from-studio-coral to-purple-500 rounded-2xl sm:rounded-3xl flex items-center justify-center"
               >
                 <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </motion.div>
               
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-miami-pink to-purple-500 bg-clip-text text-transparent">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-studio-coral to-purple-500 bg-clip-text text-transparent">
                 Projet sur-mesure ?
               </h3>
               
-              <p className="text-base sm:text-lg md:text-xl text-miami-blue-light mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
                 Chaque projet est unique. Discutons de votre vision et créons ensemble 
                 une expérience photographique qui vous ressemble.
               </p>

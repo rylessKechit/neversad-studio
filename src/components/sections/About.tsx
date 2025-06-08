@@ -73,13 +73,13 @@ export default function About() {
   return (
     <section id="about" className="py-12 sm:py-16 md:py-24 px-4 relative overflow-hidden">
       {/* Background avec effets - Responsive */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-miami-dark/50 to-black">
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black">
         {mounted && (
           <div className="absolute inset-0 opacity-15 sm:opacity-20">
             {particlePositions.map((particle, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-miami-pink rounded-full"
+                className="absolute w-1 h-1 bg-studio-coral rounded-full"
                 style={{
                   left: particle.left,
                   top: particle.top,
@@ -118,7 +118,7 @@ export default function About() {
           >
             NOTRE STUDIO
           </motion.h2>
-          <p className="text-base sm:text-lg md:text-xl text-miami-pink-light max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Bienvenue dans l'univers de Neversad Studio, où la photographie rencontre l'art et l'innovation
           </p>
         </motion.div>
@@ -134,12 +134,12 @@ export default function About() {
           >
             <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed">
               <p className="text-lg sm:text-xl">
-                Chez <span className="text-miami-pink font-semibold">Neversad Studio</span>, 
+                Chez <span className="text-studio-coral font-semibold">Neversad Studio</span>, 
                 nous croyons que chaque personne a une histoire unique à raconter.
               </p>
               
               <p className="text-sm sm:text-base">
-                Notre approche combine l'esthétique moderne de Miami avec une expertise technique de pointe. 
+                Notre approche combine l'esthétique contemporaine avec une expertise technique de pointe. 
                 Spécialisés dans le portrait, la photographie corporate et les événements, nous apportons 
                 une vision artistique fraîche à chaque projet.
               </p>
@@ -180,13 +180,13 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative order-1 lg:order-2"
           >
-            <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-miami-pink via-purple-500 to-blue-500 p-1 shadow-2xl">
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-studio-coral via-purple-500 to-blue-500 p-1 shadow-2xl">
               <div className="h-full w-full bg-black/90 rounded-2xl sm:rounded-3xl flex items-center justify-center relative overflow-hidden">
                 {/* Pattern de fond */}
-                <div className="absolute inset-0 bg-miami-grid opacity-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-studio-coral/5 to-purple-500/5"></div>
                 <div className="text-center relative z-10 px-4">
                   <div className="text-4xl sm:text-6xl md:text-8xl mb-3 sm:mb-4">📸</div>
-                  <p className="text-miami-pink-light text-base sm:text-lg font-medium">Notre Studio Miami</p>
+                  <p className="text-gray-300 text-base sm:text-lg font-medium">Notre Studio Moderne</p>
                   <p className="text-gray-400 text-xs sm:text-sm">Paris 15ème • 200m²</p>
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function About() {
             <motion.div
               animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -top-4 sm:-top-6 -right-4 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-miami-pink to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-miami-pink/25"
+              className="absolute -top-4 sm:-top-6 -right-4 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-studio-coral to-purple-500 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-studio-coral/25"
             >
               <Camera className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
             </motion.div>
@@ -233,7 +233,7 @@ export default function About() {
                 </div>
               </div>
               <motion.div 
-                className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-miami-pink to-miami-pink-light bg-clip-text text-transparent mb-1 sm:mb-2"
+                className="text-2xl sm:text-3xl md:text-4xl font-black bg-gradient-to-r from-studio-coral to-purple-500 bg-clip-text text-transparent mb-1 sm:mb-2"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
@@ -254,7 +254,7 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-miami-pink to-purple-500 bg-clip-text text-transparent">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-studio-coral to-purple-500 bg-clip-text text-transparent">
             Nos Valeurs
           </h3>
           <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto px-4">
@@ -272,7 +272,7 @@ export default function About() {
               transition={{ delay: index * 0.2 }}
               className="group"
             >
-              <div className={`relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${value.gradient} bg-opacity-10 border border-gray-800 hover:border-miami-pink/30 transition-all duration-300 group-hover:transform group-hover:scale-105`}>
+              <div className={`relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${value.gradient} bg-opacity-10 border border-gray-800 hover:border-studio-coral/30 transition-all duration-300 group-hover:transform group-hover:scale-105`}>
                 <div className="text-center mb-4 sm:mb-6">
                   <div className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4">{value.icon}</div>
                   <h4 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{value.title}</h4>

@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Camera, Menu, X, Instagram, Phone, Mail } from 'lucide-react'
+import { Menu, X, Instagram, Phone, Mail } from 'lucide-react'
 import MiamiButton from '@/components/ui/MiamiButton'
+import Image from 'next/image'
+
+// Configuration simple du logo - CHANGEZ JUSTE LE CHEMIN ICI
+const LOGO_PATH = '/images/logo/neversad-logo.png'
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -58,19 +62,25 @@ export default function Navigation() {
       >
         <div className="container-studio">
           <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-0">
-            {/* Logo élégant - Responsive */}
+            {/* Logo avec texte - RESPONSIVE */}
             <motion.a
               href="#home"
               className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => handleNavClick('#home')}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('#home')
+              }}
             >
-              <div className="relative">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-studio-coral to-studio-miami rounded-2xl flex items-center justify-center shadow-coral group-hover:shadow-lg transition-all duration-300">
-                  <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
-              </div>
+              <Image
+                src={LOGO_PATH}
+                alt="Neversad Studio"
+                width={48}
+                height={48}
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                priority
+              />
               <div className="font-display-elegant">
                 <div className="text-xl sm:text-2xl font-semibold text-neutral-900">
                   NEVER<span className="text-warm">SAD</span>
@@ -199,17 +209,18 @@ export default function Navigation() {
               className="fixed top-0 right-0 h-full w-full max-w-sm bg-white/95 backdrop-blur-xl z-50 lg:hidden shadow-2xl"
             >
               <div className="flex flex-col h-full">
-                {/* Header du menu mobile avec logo compact */}
+                {/* Header du menu mobile avec logo et texte */}
                 <div className="flex items-center justify-between p-6 border-b border-neutral-200/50">
-                  {/* Logo compact modifiable */}
+                  {/* Logo avec texte dans le menu mobile */}
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-studio-coral to-studio-miami rounded-lg flex items-center justify-center">
-                      {/* Logo SVG compact - PATH MODIFIABLE */}
-                      <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                      </svg>
-                    </div>
-                    <div className="text-xs font-bold text-neutral-700">MENU</div>
+                    <Image
+                      src={LOGO_PATH}
+                      alt="Neversad Studio"
+                      width={32}
+                      height={32}
+                      className="w-8 h-8 object-contain"
+                    />
+                    <div className="text-xs font-bold text-neutral-700">NEVERSAD STUDIO</div>
                   </div>
                   
                   <motion.button

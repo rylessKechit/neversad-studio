@@ -37,22 +37,19 @@ export default function Portfolio() {
     { id: 14, image: "/images/portfolio/photo-14.JPG" },
   ]
 
-  // Créer les lignes avec les bonnes tailles responsive - TOUJOURS 3 LIGNES
+  // Créer les lignes avec la bonne répartition - TOUJOURS 3 LIGNES
   const createRows = (items: typeof portfolioItems) => {
-    // TOUJOURS 3 lignes peu importe le device
     const rows = []
-    // Première ligne : 4 photos (ou 5 si mobile)
-    rows.push(items.slice(0, 5))   
-    // Deuxième ligne : 5 photos
-    rows.push(items.slice(5, 10))   
-    // Troisième ligne : 4 photos restantes
-    rows.push(items.slice(10, 14))  
+    // Première ligne : 4 photos (photos 1-4)
+    rows.push(items.slice(0, 4))   
+    // Deuxième ligne : 5 photos (photos 5-9)
+    rows.push(items.slice(4, 9))   
+    // Troisième ligne : 5 photos (photos 10-14)
+    rows.push(items.slice(9, 14))  
     return rows
   }
 
   const [rows, setRows] = useState(createRows(portfolioItems))
-
-  // Plus besoin de recalculer au resize puisqu'on garde toujours 3 lignes
 
   const openLightbox = (imageIndex: number) => {
     setSelectedImage(imageIndex)
@@ -90,7 +87,7 @@ export default function Portfolio() {
   if (!mounted) return null
 
   return (
-    <section id="portfolio" className="py-12 sm:py-16 md:py-24 px-4 bg-gradient-to-b from-black to-miami-dark overflow-hidden">
+    <section id="portfolio" className="py-12 sm:py-16 md:py-24 px-4 bg-gradient-to-b from-black to-neutral-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header - Responsive */}
         <motion.div
@@ -110,8 +107,8 @@ export default function Portfolio() {
           >
             PORTFOLIO
           </motion.h2>
-          <p className="text-base sm:text-lg md:text-xl text-miami-blue-light max-w-3xl mx-auto leading-relaxed px-4">
-            Nos créations dans un carrousel hypnotique
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            Nos créations dans un carousel moderne et immersif
           </p>
         </motion.div>
 
@@ -217,7 +214,7 @@ export default function Portfolio() {
           >
             {/* Close button - Responsive */}
             <motion.button
-              className="absolute top-4 sm:top-6 right-4 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors z-10"
+              className="absolute top-4 sm:top-6 right-4 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-studio-coral/20 hover:bg-studio-coral/40 rounded-full flex items-center justify-center transition-colors z-10"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={closeLightbox}
@@ -227,7 +224,7 @@ export default function Portfolio() {
 
             {/* Navigation buttons - Responsive */}
             <motion.button
-              className="absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors"
+              className="absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-studio-coral/20 hover:bg-studio-coral/40 rounded-full flex items-center justify-center transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={(e) => {
@@ -239,7 +236,7 @@ export default function Portfolio() {
             </motion.button>
 
             <motion.button
-              className="absolute right-4 sm:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors"
+              className="absolute right-4 sm:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-studio-coral/20 hover:bg-studio-coral/40 rounded-full flex items-center justify-center transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={(e) => {

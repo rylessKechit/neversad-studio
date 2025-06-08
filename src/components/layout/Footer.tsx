@@ -50,15 +50,15 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-black border-t border-miami-pink/20 overflow-hidden">
+    <footer className="relative bg-black border-t border-studio-coral/20 overflow-hidden">
       {/* Background effects - Responsive */}
-      <div className="absolute inset-0 bg-gradient-to-br from-miami-dark/50 to-black">
+      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/50 to-black">
         {mounted && (
           <div className="absolute inset-0 opacity-5 sm:opacity-10">
             {particlePositions.map((particle, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-miami-pink rounded-full"
+                className="absolute w-1 h-1 bg-studio-coral rounded-full"
                 style={{
                   left: particle.left,
                   top: particle.top,
@@ -88,20 +88,20 @@ export default function Footer() {
             className="sm:col-span-2 lg:col-span-2"
           >
             <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-miami-pink to-miami-pink-light rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-studio-coral to-purple-500 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
                 <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div className="font-display">
                 <div className="text-xl sm:text-2xl font-black text-glow">
-                  NEVER<span className="text-miami-pink">SAD</span>
+                  NEVER<span className="text-studio-coral">SAD</span>
                 </div>
-                <div className="text-xs text-miami-pink-light tracking-widest">STUDIO</div>
+                <div className="text-xs text-gray-400 tracking-widest">STUDIO</div>
               </div>
             </div>
             
             <p className="text-gray-400 leading-relaxed mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
               Studio photo premium spécialisé dans les portraits, la mode et les événements. 
-              Nous capturons vos moments avec une esthétique Miami moderne unique.
+              Nous capturons vos moments avec une esthétique moderne unique.
             </p>
 
             {/* Social Links - Responsive */}
@@ -134,7 +134,7 @@ export default function Footer() {
                 <li key={index}>
                   <motion.a
                     href={link.href}
-                    className="text-gray-400 hover:text-miami-pink transition-colors duration-300 flex items-center group text-sm sm:text-base"
+                    className="text-gray-400 hover:text-studio-coral transition-colors duration-300 flex items-center group text-sm sm:text-base"
                     whileHover={{ x: 5 }}
                     onClick={(e) => {
                       if (link.href.startsWith('#')) {
@@ -143,7 +143,7 @@ export default function Footer() {
                       }
                     }}
                   >
-                    <span className="w-1 h-1 bg-miami-pink rounded-full mr-2 sm:mr-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"></span>
+                    <span className="w-1 h-1 bg-studio-coral rounded-full mr-2 sm:mr-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"></span>
                     {link.label}
                   </motion.a>
                 </li>
@@ -163,7 +163,7 @@ export default function Footer() {
             <ul className="space-y-3 sm:space-y-4">
               {contactInfo.map((info, index) => (
                 <li key={index} className="flex items-start space-x-2 sm:space-x-3">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-miami-pink/20 rounded-lg flex items-center justify-center text-miami-pink flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-studio-coral/20 rounded-lg flex items-center justify-center text-studio-coral flex-shrink-0 mt-0.5">
                     {info.icon}
                   </div>
                   <span className="text-gray-400 text-xs sm:text-sm leading-relaxed break-words">{info.text}</span>
@@ -172,8 +172,8 @@ export default function Footer() {
             </ul>
 
             {/* Horaires - Responsive */}
-            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-miami-pink/10 rounded-xl border border-miami-pink/20">
-              <h4 className="text-miami-pink font-semibold mb-2 text-sm sm:text-base">Horaires d'ouverture</h4>
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-studio-coral/10 rounded-xl border border-studio-coral/20">
+              <h4 className="text-studio-coral font-semibold mb-2 text-sm sm:text-base">Horaires d'ouverture</h4>
               <div className="text-xs sm:text-sm text-gray-400 space-y-1">
                 <div>Lun - Ven: 9h - 18h</div>
                 <div>Samedi: 10h - 16h</div>
@@ -189,7 +189,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-miami-pink/20"
+          className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-studio-coral/20"
         >
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-gray-400 text-xs sm:text-sm text-center md:text-left">
@@ -198,7 +198,7 @@ export default function Footer() {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-miami-pink flex-shrink-0" />
+                <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-studio-coral flex-shrink-0" />
               </motion.div>
               <span>à Paris</span>
             </div>
@@ -206,21 +206,21 @@ export default function Footer() {
             <div className="flex flex-wrap justify-center md:justify-end space-x-4 sm:space-x-6 text-xs sm:text-sm text-gray-400">
               <motion.a
                 href="/mentions-legales"
-                className="hover:text-miami-pink transition-colors"
+                className="hover:text-studio-coral transition-colors"
                 whileHover={{ scale: 1.05 }}
               >
                 Mentions légales
               </motion.a>
               <motion.a
                 href="/confidentialite"
-                className="hover:text-miami-pink transition-colors"
+                className="hover:text-studio-coral transition-colors"
                 whileHover={{ scale: 1.05 }}
               >
                 Confidentialité
               </motion.a>
               <motion.a
                 href="/cgv"
-                className="hover:text-miami-pink transition-colors"
+                className="hover:text-studio-coral transition-colors"
                 whileHover={{ scale: 1.05 }}
               >
                 CGV
