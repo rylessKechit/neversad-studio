@@ -19,10 +19,10 @@ export default function MiamiButton({
   ...props 
 }: StudioButtonProps) {
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
-    xl: 'px-10 py-5 text-xl'
+    sm: 'px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm',
+    md: 'px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base',
+    lg: 'px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg',
+    xl: 'px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl'
   }
   
   const variantClasses = {
@@ -32,7 +32,7 @@ export default function MiamiButton({
     ghost: 'text-studio-coral hover:text-studio-coral-dark hover:bg-studio-coral/5 border-0 bg-transparent'
   }
   
-  const baseClasses = 'font-medium rounded-2xl transition-all duration-300 inline-flex items-center justify-center relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-studio-coral/20'
+  const baseClasses = 'font-medium rounded-xl sm:rounded-2xl transition-all duration-300 inline-flex items-center justify-center relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-studio-coral/20 whitespace-nowrap'
   
   return (
     <motion.button
@@ -59,10 +59,16 @@ export default function MiamiButton({
         />
       )}
       
-      {/* Content */}
-      <span className="relative z-10 flex items-center">
-        {icon && <span className="mr-2">{icon}</span>}
-        {children}
+      {/* Content - UNE SEULE LIGNE FORCÉE */}
+      <span className="relative z-10 inline-flex items-center justify-center gap-1 sm:gap-2 overflow-hidden">
+        {icon && (
+          <span className="inline-flex flex-shrink-0">
+            {icon}
+          </span>
+        )}
+        <span className="inline-block truncate">
+          {children}
+        </span>
       </span>
     </motion.button>
   )
