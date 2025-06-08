@@ -157,10 +157,17 @@ export default function About() {
               transition={{ delay: 0.3 }}
               className="mt-6 sm:mt-8"
             >
-              <MiamiButton variant="primary" className="group w-full sm:w-auto flex items-center justify-center whitespace-nowrap">
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:rotate-12 transition-transform flex-shrink-0" />
-                <span className="text-sm sm:text-base truncate">Découvrir notre équipe</span>
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              <MiamiButton 
+                variant="primary" 
+                className="group w-full sm:w-auto"
+                icon={
+                  <div className="flex items-center gap-1">
+                    <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
+                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                }
+              >
+                Découvrir notre équipe
               </MiamiButton>
             </motion.div>
           </motion.div>

@@ -230,10 +230,10 @@ export default function Services() {
                   <div className="relative z-10">
                     <MiamiButton 
                       variant={service.popular ? "primary" : "secondary"}
-                      className="w-full group text-sm sm:text-base flex items-center justify-center whitespace-nowrap"
+                      className="w-full group"
+                      icon={<ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />}
                     >
-                      <span className="truncate">Réserver maintenant</span>
-                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      Réserver maintenant
                     </MiamiButton>
                   </div>
                 </div>

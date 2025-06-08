@@ -194,9 +194,13 @@ export default function Portfolio() {
           transition={{ delay: 0.8 }}
           className="text-center mt-12 sm:mt-16 md:mt-20"
         >
-          <MiamiButton variant="primary" size="lg" className="group w-full sm:w-auto flex items-center justify-center whitespace-nowrap">
-            <span className="truncate text-sm sm:text-base">Voir tous nos projets</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+          <MiamiButton 
+            variant="primary" 
+            size="lg" 
+            className="group w-full sm:w-auto"
+            icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />}
+          >
+            Voir tous nos projets
           </MiamiButton>
         </motion.div>
       </div>

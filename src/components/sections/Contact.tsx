@@ -268,9 +268,13 @@ export default function Contact() {
                     ></textarea>
                   </div>
                   
-                  <MiamiButton variant="primary" size="lg" className="w-full group text-sm sm:text-base flex items-center justify-center whitespace-nowrap">
-                    <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                    <span className="truncate">Envoyer le message</span>
+                  <MiamiButton 
+                    variant="primary" 
+                    size="lg" 
+                    className="w-full group"
+                    icon={<Send className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />}
+                  >
+                    Envoyer le message
                   </MiamiButton>
                 </form>
                 
