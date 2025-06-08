@@ -187,7 +187,7 @@ export default function Hero() {
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-studio-coral mr-2 flex-shrink-0" />
-              <span className="font-display-elegant text-xl sm:text-2xl text-neutral-800">Paris 15ème</span>
+              <span className="font-display-elegant text-xl sm:text-2xl text-neutral-800">Noisy-le-Grand</span>
             </div>
             <p className="text-xs sm:text-sm text-neutral-600 font-body-refined">Studio moderne</p>
           </div>

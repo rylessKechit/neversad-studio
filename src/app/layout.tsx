@@ -22,14 +22,14 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: 'Neversad Studio - Photographie Élégante | Paris 15ème',
-  description: 'Studio photo premium spécialisé dans le portrait, les événements et la photographie corporate. Approche artistique moderne dans le 15ème arrondissement de Paris.',
+  title: 'Neversad Studio - Photographie Élégante | Noisy-le-Grand',
+  description: 'Studio photo premium spécialisé dans le portrait, les événements et la photographie corporate. Approche artistique moderne à Noisy-le-Grand, Paris.',
   keywords: [
     'studio photo paris',
     'photographe portrait paris',
     'photo corporate paris',
     'photographie élégante',
-    'studio photo 15ème',
+    'studio photo paris',
     'photographe professionnel',
     'photo événement paris',
     'séance photo artistique'

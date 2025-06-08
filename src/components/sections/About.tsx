@@ -145,7 +145,7 @@ export default function About() {
               </p>
               
               <p className="text-sm sm:text-base">
-                Basés dans le 15ème arrondissement de Paris, notre studio de 200m² est équipé des dernières 
+                Basés à Noisy-le-Grand, notre studio de 80m² est équipé des dernières 
                 technologies et d'un éclairage professionnel pour créer l'ambiance parfaite pour vos photos.
               </p>
             </div>
@@ -187,7 +187,7 @@ export default function About() {
                 <div className="text-center relative z-10 px-4">
                   <div className="text-4xl sm:text-6xl md:text-8xl mb-3 sm:mb-4">📸</div>
                   <p className="text-gray-300 text-base sm:text-lg font-medium">Notre Studio Moderne</p>
-                  <p className="text-gray-400 text-xs sm:text-sm">Paris 15ème • 200m²</p>
+                  <p className="text-gray-400 text-xs sm:text-sm">Noisy-le-Grand • 80m²</p>
                 </div>
               </div>
             </div>
