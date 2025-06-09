@@ -203,46 +203,46 @@ export default function Contact() {
               <div className="relative glass-dark-strong rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-neutral-800/50">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Envoyez-nous un message</h3>
                 
-                <form className="space-y-4 sm:space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <form className="space-y-6 sm:space-y-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
-                      <label className="block text-neutral-400 text-xs sm:text-sm font-medium mb-2">
+                      <label className="block text-neutral-400 text-sm sm:text-base font-medium mb-3">
                         Prénom
                       </label>
                       <input
                         type="text"
-                        className="input-dark"
+                        className="w-full bg-dark-700/50 border border-neutral-700 rounded-xl px-4 py-4 sm:py-5 text-white placeholder-neutral-400 focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 transition-all duration-300 text-base sm:text-lg"
                         placeholder="Votre prénom"
                       />
                     </div>
                     <div>
-                      <label className="block text-neutral-400 text-xs sm:text-sm font-medium mb-2">
+                      <label className="block text-neutral-400 text-sm sm:text-base font-medium mb-3">
                         Nom
                       </label>
                       <input
                         type="text"
-                        className="input-dark"
+                        className="w-full bg-dark-700/50 border border-neutral-700 rounded-xl px-4 py-4 sm:py-5 text-white placeholder-neutral-400 focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 transition-all duration-300 text-base sm:text-lg"
                         placeholder="Votre nom"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label className="block text-neutral-400 text-xs sm:text-sm font-medium mb-2">
+                    <label className="block text-neutral-400 text-sm sm:text-base font-medium mb-3">
                       Email
                     </label>
                     <input
                       type="email"
-                      className="input-dark"
+                      className="w-full bg-dark-700/50 border border-neutral-700 rounded-xl px-4 py-4 sm:py-5 text-white placeholder-neutral-400 focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 transition-all duration-300 text-base sm:text-lg"
                       placeholder="votre@email.com"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-neutral-400 text-xs sm:text-sm font-medium mb-2">
+                    <label className="block text-neutral-400 text-sm sm:text-base font-medium mb-3">
                       Type de séance
                     </label>
-                    <select className="input-dark">
+                    <select className="w-full bg-dark-700/50 border border-neutral-700 rounded-xl px-4 py-4 sm:py-5 text-white focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 transition-all duration-300 text-base sm:text-lg appearance-none cursor-pointer">
                       <option value="">Sélectionnez une option</option>
                       <option value="portrait">Portrait</option>
                       <option value="corporate">Corporate</option>
@@ -253,12 +253,12 @@ export default function Contact() {
                   </div>
                   
                   <div>
-                    <label className="block text-neutral-400 text-xs sm:text-sm font-medium mb-2">
+                    <label className="block text-neutral-400 text-sm sm:text-base font-medium mb-3">
                       Message
                     </label>
                     <textarea
-                      rows={4}
-                      className="input-dark resize-none"
+                      rows={5}
+                      className="w-full bg-dark-700/50 border border-neutral-700 rounded-xl px-4 py-4 sm:py-5 text-white placeholder-neutral-400 focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 transition-all duration-300 resize-none text-base sm:text-lg"
                       placeholder="Parlez-nous de votre projet..."
                     ></textarea>
                   </div>

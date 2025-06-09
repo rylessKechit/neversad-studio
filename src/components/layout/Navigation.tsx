@@ -29,18 +29,27 @@ export default function Navigation() {
   }, [])
 
   const navItems = [
-    { href: '#home', label: 'Accueil' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#about', label: 'Studio' },
-    { href: '#services', label: 'Services' },
-    { href: '#contact', label: 'Contact' }
+    { href: '/', label: 'Accueil', isExternal: false },
+    { href: '/portfolio', label: 'Portfolio', isExternal: false },
+    { href: '/studio', label: 'Studio', isExternal: false },
+    { href: '/services', label: 'Services', isExternal: false },
+    { href: '/contact', label: 'Contact', isExternal: false }
   ]
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isExternal: boolean) => {
     setIsMenuOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (isExternal) {
+      // Pour les liens externes
+      window.open(href, '_blank')
+    } else if (href.startsWith('#')) {
+      // Pour les ancres sur la même page
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Pour la navigation entre pages
+      window.location.href = href
     }
   }
 
@@ -59,11 +68,10 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 sm:h-20 px-4 sm:px-0">
             {/* 🎯 Logo dark Miami */}
             <motion.a
-              href="#home"
+              href="/"
               className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => handleNavClick('#home')}
             >
               <div className="relative">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
@@ -96,8 +104,11 @@ export default function Navigation() {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -2 }}
                   onClick={(e) => {
-                    e.preventDefault()
-                    handleNavClick(item.href)
+                    if (item.href.startsWith('#')) {
+                      e.preventDefault()
+                      handleNavClick(item.href, item.isExternal)
+                    }
+                    // Pour les autres liens, laisser le comportement par défaut
                   }}
                 >
                   {item.label}
@@ -240,8 +251,13 @@ export default function Navigation() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                       onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick(item.href)
+                        if (item.href.startsWith('#')) {
+                          e.preventDefault()
+                          handleNavClick(item.href, item.isExternal)
+                        } else {
+                          setIsMenuOpen(false)
+                          // Laisser le comportement par défaut pour la navigation entre pages
+                        }
                       }}
                     >
                       {item.label}

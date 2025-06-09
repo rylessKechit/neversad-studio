@@ -95,7 +95,7 @@ export default function PortfolioPage() {
               animate={{ opacity: 1, y: 0 }}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 sm:mb-6"
               style={{
-                background: 'linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6)',
+                background: 'linear-gradient(45deg, #FF006E, #00D4FF)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 color: 'transparent'
@@ -140,7 +140,7 @@ export default function PortfolioPage() {
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-miami-pink text-white' : 'text-gray-400 hover:text-white'}`}
+                  className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-miami-cyan text-white' : 'text-gray-400 hover:text-white'}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -155,7 +155,7 @@ export default function PortfolioPage() {
                   onClick={() => setFilter(category.id)}
                   className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium transition-all whitespace-nowrap ${
                     filter === category.id
-                      ? 'bg-gradient-to-r from-miami-pink to-purple-500 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-miami-pink to-miami-cyan text-white shadow-lg'
                       : 'bg-miami-dark/50 text-gray-400 hover:text-white hover:bg-miami-dark/80 border border-miami-pink/20'
                   }`}
                   whileHover={{ scale: 1.05 }}
@@ -224,7 +224,7 @@ export default function PortfolioPage() {
                           <button className="w-8 h-8 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-pink/50 transition-colors">
                             <Heart className="w-4 h-4" />
                           </button>
-                          <button className="w-8 h-8 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-pink/50 transition-colors">
+                          <button className="w-8 h-8 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-cyan/50 transition-colors">
                             <Share2 className="w-4 h-4" />
                           </button>
                         </div>
@@ -233,7 +233,7 @@ export default function PortfolioPage() {
                       {/* Featured badge */}
                       {item.featured && (
                         <div className="absolute top-4 left-4">
-                          <span className="px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full">
+                          <span className="px-2 py-1 bg-gradient-to-r from-miami-pink to-miami-cyan text-white text-xs font-bold rounded-full">
                             ⭐ FEATURED
                           </span>
                         </div>
@@ -278,14 +278,14 @@ export default function PortfolioPage() {
 
               {/* Navigation */}
               <button
-                className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors z-20"
+                className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-miami-cyan/20 hover:bg-miami-cyan/40 rounded-full flex items-center justify-center transition-colors z-20"
                 onClick={(e) => { e.stopPropagation(); prevImage(); }}
               >
                 <ChevronLeft className="w-6 h-6 text-white" />
               </button>
 
               <button
-                className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors z-20"
+                className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-miami-cyan/20 hover:bg-miami-cyan/40 rounded-full flex items-center justify-center transition-colors z-20"
                 onClick={(e) => { e.stopPropagation(); nextImage(); }}
               >
                 <ChevronRight className="w-6 h-6 text-white" />
@@ -316,7 +316,7 @@ export default function PortfolioPage() {
                       <button className="w-10 h-10 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors">
                         <Download className="w-5 h-5" />
                       </button>
-                      <button className="w-10 h-10 bg-miami-pink/20 hover:bg-miami-pink/40 rounded-full flex items-center justify-center transition-colors">
+                      <button className="w-10 h-10 bg-miami-cyan/20 hover:bg-miami-cyan/40 rounded-full flex items-center justify-center transition-colors">
                         <Share2 className="w-5 h-5" />
                       </button>
                     </div>

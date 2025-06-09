@@ -23,37 +23,37 @@ export default function StudioPage() {
       icon: <Camera className="w-6 h-6" />,
       title: "Équipement Professionnel",
       description: "Matériel haute définition dernière génération",
-      color: "from-pink-500 to-rose-500"
+      color: "from-miami-pink to-miami-cyan"
     },
     {
       icon: <Lightbulb className="w-6 h-6" />,
       title: "Éclairage Modulaire",
       description: "Système d'éclairage professionnel adaptable",
-      color: "from-yellow-500 to-orange-500"
+      color: "from-miami-cyan to-miami-pink"
     },
     {
       icon: <Monitor className="w-6 h-6" />,
       title: "Station de Retouche",
       description: "Setup pro pour visualisation immédiate",
-      color: "from-blue-500 to-purple-500"
+      color: "from-miami-pink to-miami-cyan"
     },
     {
       icon: <Palette className="w-6 h-6" />,
       title: "Décors Variés",
       description: "Multiples ambiances et backgrounds",
-      color: "from-green-500 to-teal-500"
+      color: "from-miami-cyan to-miami-pink"
     },
     {
       icon: <Coffee className="w-6 h-6" />,
       title: "Espace Détente",
       description: "Zone confortable pour se préparer",
-      color: "from-purple-500 to-pink-500"
+      color: "from-miami-pink to-miami-cyan"
     },
     {
       icon: <Wifi className="w-6 h-6" />,
       title: "Connexion Haut Débit",
       description: "Partage et envoi instantané",
-      color: "from-indigo-500 to-blue-500"
+      color: "from-miami-cyan to-miami-pink"
     }
   ]
 
@@ -211,7 +211,7 @@ export default function StudioPage() {
               animate={{ opacity: 1, y: 0 }}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6"
               style={{
-                background: 'linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6)',
+                background: 'linear-gradient(45deg, #FF006E, #00D4FF)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 color: 'transparent'
@@ -257,7 +257,7 @@ export default function StudioPage() {
                 <span>Paris 15ème • Métro Boucicaut</span>
               </div>
               <div className="flex items-center gap-2">
-                <Car className="w-4 h-4 text-miami-pink" />
+                <Car className="w-4 h-4 text-miami-cyan" />
                 <span>Parking gratuit disponible</span>
               </div>
             </motion.div>
@@ -278,7 +278,7 @@ export default function StudioPage() {
                   {/* Tour 360° */}
                   <div className="relative h-96 sm:h-[500px] lg:h-[600px]">
                     <div 
-                      className="w-full h-full bg-gradient-to-br from-miami-pink/20 to-purple-500/20 flex items-center justify-center relative"
+                      className="w-full h-full bg-gradient-to-br from-miami-pink/20 to-miami-cyan/20 flex items-center justify-center relative"
                       style={{
                         backgroundImage: `url(${virtualTour[currentView]?.image})`,
                         backgroundSize: 'cover',
@@ -334,7 +334,7 @@ export default function StudioPage() {
                         </button>
                         <button
                           onClick={() => setCurrentView(0)}
-                          className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-pink/50 transition-colors"
+                          className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-cyan/50 transition-colors"
                         >
                           <RotateCcw className="w-5 h-5" />
                         </button>
@@ -354,7 +354,7 @@ export default function StudioPage() {
 
                       <button
                         onClick={toggleVirtual360}
-                        className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-pink/50 transition-colors"
+                        className="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-miami-cyan/50 transition-colors"
                       >
                         <Maximize className="w-5 h-5" />
                       </button>
@@ -416,7 +416,7 @@ export default function StudioPage() {
                 className="text-center mb-12"
               >
                 <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                  Un studio <span className="text-miami-pink">entièrement équipé</span>
+                  Un studio <span className="bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">entièrement équipé</span>
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                   200m² dédiés à la création photographique avec le matériel le plus avancé
@@ -433,7 +433,7 @@ export default function StudioPage() {
                     transition={{ delay: index * 0.1 }}
                     className="group"
                   >
-                    <div className="bg-miami-dark/30 backdrop-blur-sm rounded-2xl p-6 border border-miami-pink/20 hover:border-miami-pink/40 transition-all duration-300 group-hover:transform group-hover:scale-105 h-full">
+                    <div className="bg-miami-dark/30 backdrop-blur-sm rounded-2xl p-6 border border-miami-pink/20 hover:border-miami-cyan/40 transition-all duration-300 group-hover:transform group-hover:scale-105 h-full">
                       <div className={`w-12 h-12 mb-4 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
                         <div className="text-white">{feature.icon}</div>
                       </div>
@@ -458,7 +458,7 @@ export default function StudioPage() {
                 className="text-center mb-12"
               >
                 <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                  Nos <span className="text-miami-pink">espaces</span>
+                  Nos <span className="bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">espaces</span>
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                   Chaque zone est pensée pour optimiser votre expérience de shooting
@@ -473,7 +473,7 @@ export default function StudioPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-miami-dark/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-miami-pink/20 group hover:border-miami-pink/40 transition-all duration-300"
+                    className="bg-miami-dark/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-miami-pink/20 group hover:border-miami-cyan/40 transition-all duration-300"
                   >
                     <div className="p-6 sm:p-8">
                       <div className="flex items-start justify-between mb-4">
@@ -481,7 +481,7 @@ export default function StudioPage() {
                           <h3 className="text-xl font-bold text-white mb-2">{area.name}</h3>
                           <span className="text-miami-pink text-sm font-medium">{area.size}</span>
                         </div>
-                        <div className="w-12 h-12 bg-gradient-to-br from-miami-pink to-purple-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                           <Camera className="w-6 h-6 text-white" />
                         </div>
                       </div>
@@ -491,7 +491,7 @@ export default function StudioPage() {
                       <div className="grid grid-cols-2 gap-2 mb-6">
                         {area.features.map((feature, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                            <div className="w-1.5 h-1.5 bg-miami-pink rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-miami-cyan rounded-full"></div>
                             <span>{feature}</span>
                           </div>
                         ))}
@@ -526,7 +526,7 @@ export default function StudioPage() {
                 className="text-center mb-12"
               >
                 <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                  Notre <span className="text-miami-pink">équipement</span>
+                  Notre <span className="bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">équipement</span>
                 </h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                   Du matériel professionnel haut de gamme pour des résultats exceptionnels
@@ -547,7 +547,7 @@ export default function StudioPage() {
                     <ul className="space-y-3">
                       {category.items.map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-gray-300 text-sm">
-                          <div className="w-2 h-2 bg-miami-pink rounded-full flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-miami-cyan rounded-full flex-shrink-0"></div>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -567,7 +567,7 @@ export default function StudioPage() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="relative rounded-3xl p-1 bg-gradient-to-r from-miami-pink via-purple-500 to-blue-500"
+                className="relative rounded-3xl p-1 bg-gradient-to-r from-miami-pink to-miami-cyan"
               >
                 <div className="bg-black/95 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
                   <div className="absolute inset-0 bg-miami-grid opacity-5"></div>
@@ -577,12 +577,12 @@ export default function StudioPage() {
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ type: "spring", delay: 0.3 }}
-                      className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-miami-pink to-purple-500 rounded-3xl flex items-center justify-center"
+                      className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-3xl flex items-center justify-center"
                     >
                       <MapPin className="w-10 h-10 text-white" />
                     </motion.div>
                     
-                    <h3 className="text-3xl sm:text-4xl font-black mb-6 bg-gradient-to-r from-miami-pink to-purple-500 bg-clip-text text-transparent">
+                    <h3 className="text-3xl sm:text-4xl font-black mb-6 bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">
                       Venez nous rendre visite !
                     </h3>
                     
@@ -618,13 +618,13 @@ export default function StudioPage() {
                         <span className="text-miami-pink font-semibold">✓</span> Parking gratuit
                       </div>
                       <div className="text-sm text-gray-400">
-                        <span className="text-miami-pink font-semibold">✓</span> Accès PMR
+                        <span className="text-miami-cyan font-semibold">✓</span> Accès PMR
                       </div>
                       <div className="text-sm text-gray-400">
                         <span className="text-miami-pink font-semibold">✓</span> Wifi gratuit
                       </div>
                       <div className="text-sm text-gray-400">
-                        <span className="text-miami-pink font-semibold">✓</span> Climatisation
+                        <span className="text-miami-cyan font-semibold">✓</span> Climatisation
                       </div>
                     </div>
                   </div>

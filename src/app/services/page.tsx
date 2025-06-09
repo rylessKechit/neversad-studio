@@ -26,7 +26,7 @@ export default function ServicesPage() {
       duration: "1h",
       icon: <Camera className="w-8 h-8" />,
       popular: false,
-      gradient: "from-pink-500 to-rose-500",
+      gradient: "from-miami-pink to-miami-cyan",
       description: "Séance portrait artistique avec notre signature Miami moderne",
       includes: [
         "Consultation pré-séance (15min)",
@@ -60,7 +60,7 @@ export default function ServicesPage() {
       duration: "2h",
       icon: <Users className="w-8 h-8" />,
       popular: true,
-      gradient: "from-purple-500 to-indigo-500",
+      gradient: "from-miami-cyan to-miami-pink",
       description: "Pack professionnel premium pour entreprises et dirigeants",
       includes: [
         "Consultation image de marque (30min)",
@@ -96,7 +96,7 @@ export default function ServicesPage() {
       duration: "4h",
       icon: <Heart className="w-8 h-8" />,
       popular: false,
-      gradient: "from-emerald-500 to-teal-500",
+      gradient: "from-miami-pink to-miami-cyan",
       description: "Couverture complète d'événements avec style Miami moderne",
       includes: [
         "Couverture événement complète (4h)",
@@ -132,7 +132,7 @@ export default function ServicesPage() {
       duration: "3h",
       icon: <Zap className="w-8 h-8" />,
       popular: false,
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-miami-cyan to-miami-pink",
       description: "Projet artistique sur-mesure avec concept créatif unique",
       includes: [
         "Conception créative collaborative",
@@ -232,7 +232,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6"
               style={{
-                background: 'linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6)',
+                background: 'linear-gradient(45deg, #FF006E, #00D4FF)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 color: 'transparent'
@@ -260,7 +260,7 @@ export default function ServicesPage() {
                 <span>500+ clients satisfaits</span>
               </div>
               <div className="flex items-center gap-2">
-                <Star className="w-4 h-4 text-miami-pink" />
+                <Star className="w-4 h-4 text-miami-cyan" />
                 <span>Note moyenne 4.9/5</span>
               </div>
               <div className="flex items-center gap-2">
@@ -287,7 +287,7 @@ export default function ServicesPage() {
                   {/* Badge populaire */}
                   {service.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                      <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                      <div className="bg-gradient-to-r from-miami-cyan to-miami-pink text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                         ⭐ POPULAIRE
                       </div>
                     </div>
@@ -296,7 +296,7 @@ export default function ServicesPage() {
                   {/* Service Card */}
                   <div className={`relative rounded-3xl p-1 transition-all duration-500 group-hover:scale-105 ${
                     service.popular 
-                      ? 'bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600' 
+                      ? 'bg-gradient-to-br from-miami-cyan to-miami-pink' 
                       : `bg-gradient-to-br ${service.gradient}`
                   }`}>
                     <div className="h-full bg-black/95 rounded-3xl p-8 relative overflow-hidden">
@@ -317,11 +317,11 @@ export default function ServicesPage() {
                       {/* Prix */}
                       <div className="mb-6">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="text-4xl font-black bg-gradient-to-r from-miami-pink to-miami-pink-light bg-clip-text text-transparent">
+                          <span className="text-4xl font-black bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">
                             {service.price}€
                           </span>
                           <span className="text-gray-500 line-through text-lg">{service.originalPrice}€</span>
-                          <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded-full text-xs font-medium">
+                          <span className="bg-miami-pink/20 text-miami-pink px-2 py-1 rounded-full text-xs font-medium">
                             -25%
                           </span>
                         </div>
@@ -409,7 +409,7 @@ export default function ServicesPage() {
                               {service.addOns.map((addon, i) => (
                                 <li key={i} className="flex items-center justify-between text-gray-300 text-sm">
                                   <span>{addon.name}</span>
-                                  <span className="text-miami-pink font-medium">+{addon.price}€ {addon.unit}</span>
+                                  <span className="text-miami-cyan font-medium">+{addon.price}€ {addon.unit}</span>
                                 </li>
                               ))}
                             </ul>
@@ -434,7 +434,7 @@ export default function ServicesPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Ce que disent nos <span className="text-miami-pink">clients</span>
+                Ce que disent nos <span className="bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">clients</span>
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 Plus de 500 clients nous font confiance pour leurs projets photo
@@ -449,18 +449,18 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-miami-dark/30 backdrop-blur-sm rounded-2xl p-6 border border-miami-pink/20 hover:border-miami-pink/40 transition-all duration-300"
+                  className="bg-miami-dark/30 backdrop-blur-sm rounded-2xl p-6 border border-miami-pink/20 hover:border-miami-cyan/40 transition-all duration-300"
                 >
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-4 h-4 fill-miami-cyan text-miami-cyan" />
                     ))}
                   </div>
                   
                   <p className="text-gray-300 mb-6 text-sm leading-relaxed">"{testimonial.text}"</p>
                   
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-miami-pink to-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-full flex items-center justify-center">
                       <span className="text-white font-bold text-sm">
                         {testimonial.name.charAt(0)}
                       </span>
@@ -487,7 +487,7 @@ export default function ServicesPage() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Questions <span className="text-miami-pink">fréquentes</span>
+                Questions <span className="bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">fréquentes</span>
               </h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 Tout ce que vous devez savoir sur nos services
@@ -513,7 +513,7 @@ export default function ServicesPage() {
                       animate={{ rotate: expandedFaq === index ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ChevronDown className="w-5 h-5 text-miami-pink" />
+                      <ChevronDown className="w-5 h-5 text-miami-cyan" />
                     </motion.div>
                   </button>
                   
@@ -545,7 +545,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl p-1 bg-gradient-to-r from-miami-pink via-purple-500 to-blue-500"
+              className="relative rounded-3xl p-1 bg-gradient-to-r from-miami-pink to-miami-cyan"
             >
               <div className="bg-black/95 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-miami-grid opacity-5"></div>
@@ -555,16 +555,16 @@ export default function ServicesPage() {
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ type: "spring", delay: 0.3 }}
-                    className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-miami-pink to-purple-500 rounded-3xl flex items-center justify-center"
+                    className="w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-3xl flex items-center justify-center"
                   >
                     <Zap className="w-10 h-10 text-white" />
                   </motion.div>
                   
-                  <h3 className="text-3xl sm:text-4xl font-black mb-6 bg-gradient-to-r from-miami-pink to-purple-500 bg-clip-text text-transparent">
+                  <h3 className="text-3xl sm:text-4xl font-black mb-6 bg-gradient-to-r from-miami-pink to-miami-cyan bg-clip-text text-transparent">
                     Prêt à créer ensemble ?
                   </h3>
                   
-                  <p className="text-lg text-miami-blue-light mb-8 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
                     Chaque projet est unique. Discutons de votre vision et créons 
                     une expérience photographique qui vous ressemble.
                   </p>
@@ -584,7 +584,7 @@ export default function ServicesPage() {
                       <span className="text-miami-pink font-semibold">✓</span> Devis sous 24h
                     </div>
                     <div className="text-sm text-gray-400">
-                      <span className="text-miami-pink font-semibold">✓</span> Satisfaction garantie
+                      <span className="text-miami-cyan font-semibold">✓</span> Satisfaction garantie
                     </div>
                     <div className="text-sm text-gray-400">
                       <span className="text-miami-pink font-semibold">✓</span> Paiement sécurisé
