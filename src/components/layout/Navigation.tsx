@@ -66,21 +66,21 @@ export default function Navigation() {
               onClick={() => handleNavClick('#home')}
             >
               <div className="relative">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-2xl flex items-center justify-center shadow-pink group-hover:shadow-pink-lg transition-all duration-300 overflow-hidden">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
                   {/* 🎯 REMPLACEZ PAR VOTRE LOGO */}
                   <img 
                     src="images/logo/neversad-logo.png" 
                     alt="Neversad Studio Logo" 
-                    className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
+                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                   />
                   <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-white hidden" />
                 </div>
               </div>
-              <div className="font-display-dark">
-                <div className="text-xl sm:text-2xl font-semibold text-white">
-                  NEVER<span className="text-miami-gradient">SAD</span>
+              <div className="font-display text-white">
+                <div className="text-xl sm:text-2xl font-semibold">
+                  NEVER<span className="text-miami-pink">SAD</span>
                 </div>
-                <div className="text-xs text-miami-cyan font-accent-dark tracking-wider">STUDIO</div>
+                <div className="text-xs text-miami-cyan font-semibold tracking-wider">STUDIO</div>
               </div>
             </motion.a>
 
@@ -207,12 +207,11 @@ export default function Navigation() {
                 {/* 📍 Header du menu mobile dark */}
                 <div className="flex items-center justify-between p-6 border-b border-neutral-800/50">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-lg flex items-center justify-center overflow-hidden">
-                      {/* 🎯 LOGO COMPACT POUR MENU MOBILE */}
-                      <img 
-                        src="images/logo/neversad-logo.png" 
-                        alt="Logo" 
-                        className="w-4 h-4 object-contain"
+                    <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
+                      <img
+                        src="images/logo/neversad-logo.png"
+                        alt="Logo"
+                        className="w-8 h-8 object-contain"
                       />
                       <svg className="w-4 h-4 text-white hidden" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>

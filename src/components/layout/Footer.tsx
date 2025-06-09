@@ -110,20 +110,18 @@ export default function Footer() {
             className="sm:col-span-2 lg:col-span-2"
           >
             <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-miami-pink to-miami-cyan rounded-xl flex items-center justify-center shadow-miami-dark flex-shrink-0 overflow-hidden">
-                {/* 🎯 REMPLACEZ PAR VOTRE LOGO */}
-                <img 
-                  src="images/logo/neversad-logo.png" 
-                  alt="Neversad Studio Logo" 
-                  className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img
+                  src="images/logo/neversad-logo.png"
+                  alt="Neversad Studio Logo"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                 />
-                <Camera className="w-5 h-5 sm:w-6 sm:h-6 text-white hidden" />
               </div>
-              <div className="font-display-dark">
-                <div className="text-xl sm:text-2xl font-black text-glow-miami">
-                  NEVER<span className="text-miami-gradient">SAD</span>
+              <div className="font-display text-white">
+                <div className="text-xl sm:text-2xl font-black">
+                  NEVER<span className="text-miami-pink">SAD</span>
                 </div>
-                <div className="text-xs text-miami-cyan tracking-widest">STUDIO</div>
+                <div className="text-xs text-miami-cyan tracking-widest font-semibold">STUDIO</div>
               </div>
             </div>
             
