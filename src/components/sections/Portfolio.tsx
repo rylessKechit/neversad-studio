@@ -14,22 +14,17 @@ export default function Portfolio() {
     setMounted(true)
   }, [])
   
-  // Portfolio avec 14 photos (4 + 5 + 5)
+  // Portfolio avec 14 photos
   const portfolioItems = [
-    // Ligne 1 - 4 photos
     { id: 1, image: "/images/portfolio/photo-1.JPG" },
     { id: 2, image: "/images/portfolio/photo-2.JPG" },
     { id: 3, image: "/images/portfolio/photo-3.JPG" },
     { id: 4, image: "/images/portfolio/photo-4.JPG" },
-
-    // Ligne 2 - 5 photos
     { id: 5, image: "/images/portfolio/photo-5.JPG" },
     { id: 6, image: "/images/portfolio/photo-6.JPG" },
     { id: 7, image: "/images/portfolio/photo-7.JPG" },
     { id: 8, image: "/images/portfolio/photo-8.JPG" },
     { id: 9, image: "/images/portfolio/photo-9.JPG" },
-
-    // Ligne 3 - 5 photos
     { id: 10, image: "/images/portfolio/photo-10.JPG" },
     { id: 11, image: "/images/portfolio/photo-11.JPG" },
     { id: 12, image: "/images/portfolio/photo-12.JPG" },
@@ -37,15 +32,12 @@ export default function Portfolio() {
     { id: 14, image: "/images/portfolio/photo-14.JPG" },
   ]
 
-  // Créer les lignes avec la bonne répartition - TOUJOURS 3 LIGNES
+  // Créer les lignes avec les bonnes tailles - TOUJOURS 3 LIGNES
   const createRows = (items: typeof portfolioItems) => {
     const rows = []
-    // Première ligne : 4 photos (photos 1-4)
-    rows.push(items.slice(0, 4))   
-    // Deuxième ligne : 5 photos (photos 5-9)
-    rows.push(items.slice(4, 9))   
-    // Troisième ligne : 5 photos (photos 10-14)
-    rows.push(items.slice(9, 14))  
+    rows.push(items.slice(0, 5))   
+    rows.push(items.slice(5, 10))   
+    rows.push(items.slice(10, 14))  
     return rows
   }
 
@@ -54,13 +46,11 @@ export default function Portfolio() {
   const openLightbox = (imageIndex: number) => {
     setSelectedImage(imageIndex)
     setLightboxOpen(true)
-    // Empêcher le scroll du body
     document.body.style.overflow = 'hidden'
   }
 
   const closeLightbox = () => {
     setLightboxOpen(false)
-    // Restaurer le scroll du body
     document.body.style.overflow = 'unset'
   }
 
@@ -87,9 +77,14 @@ export default function Portfolio() {
   if (!mounted) return null
 
   return (
-    <section id="portfolio" className="py-12 sm:py-16 md:py-24 px-4 bg-gradient-to-b from-black to-neutral-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        {/* Header - Responsive */}
+    <section id="portfolio" className="py-12 sm:py-16 md:py-24 px-4 bg-dark-950 overflow-hidden relative">
+      {/* 🌙 Background effects dark */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950">
+        <div className="absolute inset-0 bg-miami-grid-dark opacity-5"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* 📍 Header dark */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,36 +92,30 @@ export default function Portfolio() {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <motion.h2 
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-3 sm:mb-4 md:mb-6"
-            style={{
-              background: 'linear-gradient(45deg, #ff0080, #ff4da6, #8B5CF6)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent'
-            }}
+            className="font-display-dark text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-3 sm:mb-4 md:mb-6 text-miami-gradient text-glow-miami"
           >
             PORTFOLIO
           </motion.h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-            Nos créations dans un carousel moderne et immersif
+          <p className="text-base sm:text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed px-4">
+            Nos créations dans un carrousel hypnotique
           </p>
         </motion.div>
 
-        {/* Carousel Grid Fluide - Responsive */}
+        {/* 🎠 Carousel Grid Fluide Dark */}
         <div className="space-y-6 sm:space-y-8 md:space-y-12">
           {rows.map((row, rowIndex) => {
-            // Créer un tableau étendu pour le scroll infini
-            const extendedRow = [...row, ...row, ...row] // Triple pour plus de fluidité
+            // Triple pour le scroll infini
+            const extendedRow = [...row, ...row, ...row]
             const direction = rowIndex % 2 === 0 ? -1 : 1
-            const speed = 30 + rowIndex * 5 // Vitesse progressive
+            const speed = 35 + rowIndex * 8 // Plus lent et hypnotique
             
             // Responsive sizes
             const getImageSize = () => {
-              if (typeof window === 'undefined') return { width: 200, height: 250 }
-              if (window.innerWidth < 640) return { width: 150, height: 200 }
-              if (window.innerWidth < 768) return { width: 180, height: 230 }
-              if (window.innerWidth < 1024) return { width: 200, height: 250 }
-              return { width: 250, height: 320 }
+              if (typeof window === 'undefined') return { width: 200, height: 280 }
+              if (window.innerWidth < 640) return { width: 160, height: 220 }
+              if (window.innerWidth < 768) return { width: 190, height: 260 }
+              if (window.innerWidth < 1024) return { width: 220, height: 300 }
+              return { width: 280, height: 360 }
             }
             
             const imageSize = getImageSize()
@@ -140,11 +129,11 @@ export default function Portfolio() {
                 transition={{ duration: 0.8, delay: rowIndex * 0.2 }}
                 className="relative overflow-hidden"
               >
-                {/* Container avec scroll infini CSS - Responsive */}
+                {/* Container avec scroll infini CSS dark */}
                 <div 
-                  className="flex gap-3 sm:gap-4 md:gap-6 will-change-transform"
+                  className="flex gap-4 sm:gap-6 md:gap-8 will-change-transform"
                   style={{
-                    width: `${extendedRow.length * (imageSize.width + 24)}px`,
+                    width: `${extendedRow.length * (imageSize.width + 32)}px`,
                     animation: `scroll-${direction > 0 ? 'right' : 'left'} ${speed}s linear infinite`,
                   }}
                 >
@@ -159,21 +148,24 @@ export default function Portfolio() {
                       whileHover={{ 
                         scale: 1.05, 
                         zIndex: 10,
-                        transition: { duration: 0.2 }
+                        transition: { duration: 0.3 }
                       }}
                       onClick={() => openLightbox(portfolioItems.findIndex(p => p.id === item.id))}
                     >
-                      {/* Container de l'image - Responsive */}
-                      <div className="relative w-full h-full rounded-xl sm:rounded-2xl bg-gray-900 overflow-hidden shadow-lg sm:shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                      {/* 🖼️ Container de l'image dark */}
+                      <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-dark-800 overflow-hidden shadow-dark group-hover:shadow-pink-dark transition-all duration-500 border border-neutral-800/50 group-hover:border-miami-pink/30">
                         <img 
                           src={item.image}
                           alt={`Portfolio image ${item.id}`}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                           loading="lazy"
                         />
                         
-                        {/* Overlay subtil au hover */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {/* 🌟 Overlay au hover - Rose et Cyan */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-miami-pink/20 via-transparent to-miami-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
+                        {/* 💫 Effet de glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-miami-pink/5 to-miami-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </div>
                     </motion.div>
                   ))}
@@ -183,7 +175,7 @@ export default function Portfolio() {
           })}
         </div>
 
-        {/* CTA - Responsive */}
+        {/* 🎯 CTA dark */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -202,29 +194,29 @@ export default function Portfolio() {
         </motion.div>
       </div>
 
-      {/* Lightbox - Responsive */}
+      {/* 🔍 Lightbox Dark */}
       <AnimatePresence>
         {lightboxOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4"
+            className="fixed inset-0 z-50 bg-dark-950/95 backdrop-blur-2xl flex items-center justify-center p-3 sm:p-4"
             onClick={closeLightbox}
           >
-            {/* Close button - Responsive */}
+            {/* Close button dark */}
             <motion.button
-              className="absolute top-4 sm:top-6 right-4 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-studio-coral/20 hover:bg-studio-coral/40 rounded-full flex items-center justify-center transition-colors z-10"
+              className="absolute top-4 sm:top-6 right-4 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 glass-dark border border-miami-pink/20 hover:border-miami-pink/50 rounded-full flex items-center justify-center transition-all z-10 group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={closeLightbox}
             >
-              <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-miami-pink group-hover:text-white transition-colors" />
             </motion.button>
 
-            {/* Navigation buttons - Responsive */}
+            {/* Navigation buttons dark */}
             <motion.button
-              className="absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-studio-coral/20 hover:bg-studio-coral/40 rounded-full flex items-center justify-center transition-colors"
+              className="absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 glass-dark border border-miami-cyan/20 hover:border-miami-cyan/50 rounded-full flex items-center justify-center transition-all group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={(e) => {
@@ -232,11 +224,11 @@ export default function Portfolio() {
                 prevImage()
               }}
             >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-miami-cyan group-hover:text-white transition-colors" />
             </motion.button>
 
             <motion.button
-              className="absolute right-4 sm:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-studio-coral/20 hover:bg-studio-coral/40 rounded-full flex items-center justify-center transition-colors"
+              className="absolute right-4 sm:right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 glass-dark border border-miami-cyan/20 hover:border-miami-cyan/50 rounded-full flex items-center justify-center transition-all group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={(e) => {
@@ -244,10 +236,10 @@ export default function Portfolio() {
                 nextImage()
               }}
             >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-miami-cyan group-hover:text-white transition-colors" />
             </motion.button>
 
-            {/* Image container - Responsive */}
+            {/* Image container dark */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -255,7 +247,7 @@ export default function Portfolio() {
               className="relative max-w-full max-h-full mx-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-80 sm:h-96 md:h-[500px] lg:h-[600px] max-w-4xl rounded-xl sm:rounded-2xl bg-gray-800 shadow-2xl overflow-hidden">
+              <div className="relative w-full h-80 sm:h-96 md:h-[500px] lg:h-[600px] max-w-4xl rounded-2xl sm:rounded-3xl bg-dark-800 shadow-dark-lg overflow-hidden border border-neutral-700">
                 <div className="h-full w-full flex items-center justify-center">
                   <img 
                     src={portfolioItems[selectedImage]?.image}
@@ -265,10 +257,10 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Image info - Responsive */}
+              {/* Image info dark */}
               <div className="text-center mt-4 sm:mt-6">
-                <p className="text-gray-400 text-xs sm:text-sm">
-                  {selectedImage + 1} / {portfolioItems.length}
+                <p className="text-neutral-400 text-xs sm:text-sm">
+                  <span className="text-miami-pink">{selectedImage + 1}</span> / <span className="text-miami-cyan">{portfolioItems.length}</span>
                 </p>
               </div>
             </motion.div>
@@ -276,7 +268,7 @@ export default function Portfolio() {
         )}
       </AnimatePresence>
 
-      {/* CSS pour les animations fluides - Responsive */}
+      {/* CSS pour les animations fluides dark */}
       <style jsx>{`
         @keyframes scroll-left {
           0% {
@@ -296,14 +288,14 @@ export default function Portfolio() {
           }
         }
         
-        /* Pause au hover pour interaction - mais pas sur mobile */
+        /* Pause au hover pour interaction */
         @media (min-width: 768px) {
           .group:hover {
             animation-play-state: paused;
           }
         }
         
-        /* Optimisation mobile */
+        /* Optimisation mobile dark */
         @media (max-width: 767px) {
           .will-change-transform {
             will-change: transform;

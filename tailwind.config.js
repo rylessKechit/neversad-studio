@@ -1,4 +1,4 @@
-// tailwind.config.js
+// tailwind.config.js - PALETTE DARK MIAMI (Rose + Cyan uniquement)
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,36 +9,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Palette Miami sophistiquée pour studio photo
-        'studio': {
-          'coral': '#FF6B9D',     // Rose coral Miami
-          'coral-light': '#FFB3D1',
-          'coral-dark': '#E55A8A',
-          'miami': '#00D4FF',     // Bleu cyan Miami
-          'miami-light': '#5CE1FF',
-          'miami-dark': '#00B8E6',
-          'cream': '#FFF8F9',     // Crème rosé
-          'charcoal': '#2C2C2E',  // Gris charbon élégant
-          'slate': '#48484A',     // Gris ardoise
-          'pearl': '#F2F2F7',     // Blanc nacré
-        },
-
-        // Couleurs Miami pour le thème néon
+        // 🎨 PALETTE PRINCIPALE - 2 COULEURS SEULEMENT
         'miami': {
           'pink': '#FF006E',        // Rose néon principal
           'pink-light': '#FF4DA6',  // Rose néon clair
           'pink-dark': '#E5005C',   // Rose néon foncé
-          'blue': '#00D4FF',        // Bleu cyan Miami
-          'blue-light': '#5CE1FF',  // Bleu cyan clair
-          'blue-dark': '#00B8E6',   // Bleu cyan foncé
-          'dark': '#0A0A0A',        // Noir profond
-          'grid': '#1A1A1A',        // Couleur grille
+          'cyan': '#00D4FF',        // Cyan néon principal  
+          'cyan-light': '#5CE1FF',  // Cyan néon clair
+          'cyan-dark': '#00B8E6',   // Cyan néon foncé
         },
         
-        // Tons neutres professionnels
+        // 🌑 DARK THEME - Noirs profonds
+        'dark': {
+          950: '#000000',           // Noir pur
+          900: '#0A0A0A',           // Noir très profond
+          800: '#121212',           // Noir profond
+          700: '#1A1A1A',           // Noir moyen
+          600: '#2A2A2A',           // Gris très foncé
+          500: '#3A3A3A',           // Gris foncé
+        },
+        
+        // 🔧 NEUTRALS pour contraste
         'neutral': {
           50: '#FAFAFA',
-          100: '#F5F5F5',
+          100: '#F5F5F5', 
           200: '#E5E5E5',
           300: '#D4D4D4',
           400: '#A3A3A3',
@@ -51,26 +45,31 @@ module.exports = {
         },
         
         // Variables CSS
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: '#000000',
+        foreground: '#FFFFFF',
       },
+      
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-playfair)', 'serif'], // Plus élégant que Orbitron
+        display: ['var(--font-playfair)', 'serif'],
         accent: ['var(--font-montserrat)', 'sans-serif'],
       },
+      
       fontSize: {
         '7xl': '4.5rem',
-        '8xl': '6rem',
+        '8xl': '6rem', 
         '9xl': '8rem',
       },
+      
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'float-gentle': 'floatGentle 4s ease-in-out infinite',
         'shimmer': 'shimmer 2.5s ease-in-out infinite',
         'photo-reveal': 'photoReveal 1.2s ease-out',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
       },
+      
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -100,30 +99,52 @@ module.exports = {
             filter: 'blur(0px)'
           },
         },
+        pulseGlow: {
+          '0%, 100%': { 
+            boxShadow: '0 0 20px rgba(255, 0, 110, 0.3)' 
+          },
+          '50%': { 
+            boxShadow: '0 0 40px rgba(255, 0, 110, 0.6), 0 0 60px rgba(0, 212, 255, 0.3)' 
+          },
+        },
       },
+      
       boxShadow: {
-        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.05)',
-        'large': '0 10px 50px -10px rgba(0, 0, 0, 0.15), 0 20px 40px -10px rgba(0, 0, 0, 0.1)',
-        'coral': '0 4px 25px -5px rgba(255, 107, 107, 0.25)',
-        'warm': '0 8px 30px -5px rgba(255, 217, 61, 0.3)',
+        // 🌟 Shadows avec nos 2 couleurs uniquement
+        'pink': '0 4px 25px -5px rgba(255, 0, 110, 0.25)',
+        'cyan': '0 4px 25px -5px rgba(0, 212, 255, 0.25)',
+        'pink-lg': '0 10px 40px -10px rgba(255, 0, 110, 0.3)',
+        'cyan-lg': '0 10px 40px -10px rgba(0, 212, 255, 0.3)',
+        'dark': '0 10px 40px -10px rgba(0, 0, 0, 0.8)',
+        'dark-lg': '0 20px 60px -10px rgba(0, 0, 0, 0.9)',
       },
+      
       backdropBlur: {
         xs: '2px',
         '4xl': '72px',
       },
+      
       backgroundImage: {
-        'gradient-warm': 'linear-gradient(135deg, #FF6B9D 0%, #00D4FF 50%, #5CE1FF 100%)',
-        'gradient-soft': 'linear-gradient(135deg, #FFF8F9 0%, #FFB3D1 100%)',
-        'gradient-miami': 'linear-gradient(135deg, #FF6B9D 0%, #00D4FF 100%)',
-        'gradient-professional': 'linear-gradient(135deg, #F2F2F7 0%, #E5E5E5 50%, #D4D4D4 100%)',
-        'texture-paper': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23000000\" fill-opacity=\"0.02\"%3E%3Cpath d=\"m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+        // 🎨 Gradients avec nos 2 couleurs uniquement
+        'gradient-miami': 'linear-gradient(135deg, #FF006E 0%, #00D4FF 100%)',
+        'gradient-pink': 'linear-gradient(135deg, #E5005C 0%, #FF4DA6 100%)',
+        'gradient-cyan': 'linear-gradient(135deg, #00B8E6 0%, #5CE1FF 100%)',
+        'gradient-dark': 'linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #121212 100%)',
+        'gradient-radial': 'radial-gradient(ellipse at center, #0A0A0A 0%, #000000 100%)',
+        
+        // Grid pattern dark
+        'miami-grid-dark': `
+          linear-gradient(rgba(255, 0, 110, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 0, 110, 0.1) 1px, transparent 1px)
+        `,
       },
+      
       spacing: {
         '18': '4.5rem',
-        '88': '22rem',
+        '88': '22rem', 
         '128': '32rem',
       },
+      
       borderRadius: {
         '4xl': '2rem',
         '5xl': '2.5rem',

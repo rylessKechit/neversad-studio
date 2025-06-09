@@ -8,8 +8,16 @@
   --font-inter: 'Inter', sans-serif;
   --font-playfair: 'Playfair Display', serif;
   --font-montserrat: 'Montserrat', sans-serif;
-  --background: #FAFAFA;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #FFFFFF;
+  
+  /* 🎨 Variables couleurs - 2 couleurs uniquement */
+  --miami-pink: #FF006E;
+  --miami-pink-light: #FF4DA6;
+  --miami-pink-dark: #E5005C;
+  --miami-cyan: #00D4FF;
+  --miami-cyan-light: #5CE1FF;
+  --miami-cyan-dark: #00B8E6;
 }
 
 * {
@@ -25,16 +33,15 @@ html {
 
 body {
   font-family: var(--font-inter);
-  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+  background: #000000;
   color: var(--foreground);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Prevent horizontal scroll on mobile */
   overflow-x: hidden;
 }
 
-/* Scrollbar Miami élégant - Responsive */
+/* 🌙 Scrollbar Dark Miami */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -46,36 +53,36 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(245, 245, 245, 0.5);
+  background: rgba(10, 10, 10, 0.8);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #FF6B9D, #00D4FF);
+  background: linear-gradient(180deg, var(--miami-pink), var(--miami-cyan));
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #E55A8A, #00B8E6);
+  background: linear-gradient(180deg, var(--miami-pink-dark), var(--miami-cyan-dark));
 }
 
 /* Sélection de texte */
 ::selection {
-  background: rgba(255, 107, 157, 0.2);
-  color: #E55A8A;
+  background: rgba(255, 0, 110, 0.3);
+  color: #FFFFFF;
 }
 
 ::-moz-selection {
-  background: rgba(255, 107, 157, 0.2);
-  color: #E55A8A;
+  background: rgba(255, 0, 110, 0.3);
+  color: #FFFFFF;
 }
 
-/* Focus states professionnels */
+/* Focus states */
 :focus {
   outline: none;
 }
 
 :focus-visible {
-  outline: 2px solid #FF6B9D;
+  outline: 2px solid var(--miami-pink);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -92,145 +99,57 @@ input, select, textarea {
   }
 }
 
-/* Styles utilitaires pour studio photo - Responsive */
+/* 🎨 CLASSES UTILITAIRES DARK MIAMI - 2 COULEURS */
 @layer utilities {
-  /* Effets d'ombre sophistiqués - Responsive */
-  .shadow-photo {
-    box-shadow: 
-      0 2px 10px -1px rgba(0, 0, 0, 0.06),
-      0 1px 4px -1px rgba(0, 0, 0, 0.03);
-  }
-  
-  @media (min-width: 768px) {
-    .shadow-photo {
-      box-shadow: 
-        0 4px 20px -2px rgba(0, 0, 0, 0.08),
-        0 2px 8px -2px rgba(0, 0, 0, 0.04);
-    }
-  }
-  
-  .shadow-portrait {
-    box-shadow: 
-      0 6px 25px -5px rgba(0, 0, 0, 0.12),
-      0 0 0 1px rgba(255, 255, 255, 0.05);
-  }
-  
-  @media (min-width: 768px) {
-    .shadow-portrait {
-      box-shadow: 
-        0 10px 40px -10px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
-    }
-  }
-  
-  .shadow-gallery {
-    box-shadow: 
-      0 10px 35px -5px rgba(0, 0, 0, 0.15),
-      0 4px 12px -2px rgba(0, 0, 0, 0.08);
-  }
-  
-  @media (min-width: 768px) {
-    .shadow-gallery {
-      box-shadow: 
-        0 20px 60px -10px rgba(0, 0, 0, 0.2),
-        0 8px 20px -5px rgba(0, 0, 0, 0.1);
-    }
-  }
-  
-  /* Effets de texte Miami élégants */
-  .text-warm {
-    background: linear-gradient(135deg, #FF6B9D, #00D4FF);
+  /* Effets de texte */
+  .text-miami-gradient {
+    background: linear-gradient(135deg, var(--miami-pink), var(--miami-cyan));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
   }
   
-  .text-miami {
-    background: linear-gradient(135deg, #00D4FF, #5CE1FF);
+  .text-pink-gradient {
+    background: linear-gradient(135deg, var(--miami-pink-dark), var(--miami-pink-light));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
   }
   
-  .text-elegant {
-    background: linear-gradient(135deg, #2C2C2E, #48484A);
+  .text-cyan-gradient {
+    background: linear-gradient(135deg, var(--miami-cyan-dark), var(--miami-cyan-light));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
   }
   
-  /* Effets glass sophistiqués - Responsive */
-  .glass-studio {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+  /* Effets glass dark */
+  .glass-dark {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 0, 110, 0.1);
   }
   
-  @media (min-width: 768px) {
-    .glass-studio {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+  .glass-dark-strong {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(25px) saturate(200%);
+    border: 1px solid rgba(255, 0, 110, 0.2);
   }
   
-  .glass-warm {
-    background: rgba(255, 248, 249, 0.9);
-    backdrop-filter: blur(15px) saturate(150%);
-    border: 1px solid rgba(255, 107, 157, 0.15);
-  }
-  
-  @media (min-width: 768px) {
-    .glass-warm {
-      background: rgba(255, 248, 249, 0.9);
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 107, 157, 0.2);
-    }
-  }
-  
-  /* Overlay pour photos */
-  .photo-overlay {
+  /* Overlay pour photos dark */
+  .photo-overlay-dark {
     background: linear-gradient(
       135deg,
-      rgba(255, 107, 157, 0.1) 0%,
+      rgba(255, 0, 110, 0.1) 0%,
       rgba(0, 212, 255, 0.05) 50%,
-      rgba(255, 107, 157, 0.1) 100%
+      rgba(255, 0, 110, 0.1) 100%
     );
   }
   
-  /* Effets hover professionnels - Responsive */
-  .hover-lift-gentle {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  
-  .hover-lift-gentle:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
-  }
-  
-  @media (min-width: 768px) {
-    .hover-lift-gentle:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-    }
-  }
-  
-  /* Animation shimmer pour les photos */
-  .shimmer-effect {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent
-    );
-    background-size: 200% 100%;
-    animation: shimmer 2.5s ease-in-out infinite;
-  }
-  
-  /* Boutons Miami élégants - Responsive FORCÉ UNE LIGNE */
-  .btn-studio {
-    background: linear-gradient(135deg, #FF6B9D 0%, #00D4FF 100%);
-    box-shadow: 0 3px 12px rgba(255, 107, 157, 0.25);
+  /* Boutons Miami dark */
+  .btn-miami-primary {
+    background: linear-gradient(135deg, var(--miami-pink) 0%, var(--miami-cyan) 100%);
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.3);
     transition: all 0.3s ease;
     white-space: nowrap;
     overflow: hidden;
@@ -239,27 +158,14 @@ input, select, textarea {
     justify-content: center;
   }
   
-  @media (min-width: 768px) {
-    .btn-studio {
-      box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-    }
+  .btn-miami-primary:hover {
+    box-shadow: 0 8px 25px rgba(255, 0, 110, 0.4), 0 4px 15px rgba(0, 212, 255, 0.2);
+    transform: translateY(-2px);
   }
   
-  .btn-studio:hover {
-    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.35);
-    transform: translateY(-1px);
-  }
-  
-  @media (min-width: 768px) {
-    .btn-studio:hover {
-      box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
-      transform: translateY(-2px);
-    }
-  }
-  
-  .btn-outline-studio {
-    border: 2px solid #FF6B9D;
-    color: #FF6B9D;
+  .btn-miami-outline {
+    border: 2px solid var(--miami-pink);
+    color: var(--miami-pink);
     background: transparent;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -269,249 +175,125 @@ input, select, textarea {
     justify-content: center;
   }
   
-  .btn-outline-studio:hover {
-    background: #FF6B9D;
+  .btn-miami-outline:hover {
+    background: var(--miami-pink);
     color: white;
-    box-shadow: 0 3px 12px rgba(255, 107, 157, 0.25);
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.3);
   }
   
-  @media (min-width: 768px) {
-    .btn-outline-studio:hover {
-      box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-    }
-  }
-  
-  /* Typography raffinée - Responsive */
-  .font-display-elegant {
+  /* Typography dark */
+  .font-display-dark {
     font-family: var(--font-playfair);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.1;
   }
   
-  @media (min-width: 768px) {
-    .font-display-elegant {
-      letter-spacing: -0.025em;
-    }
-  }
-  
-  .font-body-refined {
+  .font-body-dark {
     font-family: var(--font-inter);
     font-weight: 400;
     letter-spacing: -0.005em;
     line-height: 1.6;
   }
   
-  @media (min-width: 768px) {
-    .font-body-refined {
-      letter-spacing: -0.01em;
-      line-height: 1.7;
-    }
-  }
-  
-  .font-accent-modern {
+  .font-accent-dark {
     font-family: var(--font-montserrat);
-    font-weight: 500;
-    letter-spacing: 0.03em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
   }
   
-  @media (min-width: 768px) {
-    .font-accent-modern {
-      letter-spacing: 0.05em;
-    }
+  /* Text glow effects */
+  .text-glow-pink {
+    text-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
   }
   
-  /* Text glow effect */
-  .text-glow {
-    text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
   }
   
-  /* Miami grid background */
-  .bg-miami-grid {
+  .text-glow-miami {
+    text-shadow: 
+      0 0 10px rgba(255, 0, 110, 0.3),
+      0 0 20px rgba(0, 212, 255, 0.2);
+  }
+  
+  /* Miami grid background dark */
+  .bg-miami-grid-dark {
     background-image: 
       linear-gradient(rgba(255, 0, 110, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 0, 110, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-size: 30px 30px;
   }
   
-  @media (min-width: 768px) {
-    .bg-miami-grid {
-      background-size: 30px 30px;
-    }
+  /* Shadows dark */
+  .shadow-pink-dark {
+    box-shadow: 0 4px 20px rgba(255, 0, 110, 0.25);
+  }
+  
+  .shadow-cyan-dark {
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25);
+  }
+  
+  .shadow-miami-dark {
+    box-shadow: 
+      0 4px 20px rgba(255, 0, 110, 0.2),
+      0 2px 10px rgba(0, 212, 255, 0.1);
   }
 }
 
-/* Composants professionnels - Responsive */
+/* 🧩 COMPOSANTS DARK */
 @layer components {
-  .card-portfolio {
-    @apply bg-white rounded-2xl p-4 shadow-photo hover:shadow-portrait hover-lift-gentle;
+  .card-dark {
+    @apply bg-dark-800/80 backdrop-blur-xl rounded-2xl border border-neutral-800 hover:border-miami-pink/30 transition-all duration-300;
   }
   
-  @media (min-width: 768px) {
-    .card-portfolio {
-      @apply rounded-3xl p-8;
-    }
-  }
-  
-  .card-service {
-    @apply glass-studio rounded-3xl p-6 hover:shadow-coral transition-all duration-500;
-  }
-  
-  @media (min-width: 768px) {
-    .card-service {
-      @apply rounded-4xl p-10;
-    }
-  }
-  
-  .input-miami {
-    @apply bg-miami-dark/50 border border-miami-pink/20 rounded-xl px-3 py-2 
-           text-white placeholder-gray-400 
+  .input-dark {
+    @apply bg-dark-700/50 border border-neutral-700 rounded-xl px-4 py-3 
+           text-white placeholder-neutral-400 
            focus:border-miami-pink focus:ring-2 focus:ring-miami-pink/20 
-           transition-all duration-300 font-body-refined text-sm;
+           transition-all duration-300;
+  }
+  
+  .section-dark {
+    @apply py-16 px-4 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950;
   }
   
   @media (min-width: 768px) {
-    .input-miami {
-      @apply px-4 py-3 text-base;
+    .section-dark {
+      @apply py-24 px-6;
     }
   }
   
-  .text-caption {
-    @apply font-accent-modern text-xs text-studio-coral tracking-wider;
-  }
-  
-  @media (min-width: 768px) {
-    .text-caption {
-      @apply text-sm;
-    }
-  }
-  
-  .section-padding {
-    @apply py-16 px-4;
-  }
-  
-  @media (min-width: 768px) {
-    .section-padding {
-      @apply py-20 px-6;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .section-padding {
-      @apply py-24 px-8;
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .section-padding {
-      @apply py-32;
-    }
-  }
-  
-  .container-studio {
+  .container-dark {
     @apply max-w-7xl mx-auto px-4;
   }
   
-  @media (min-width: 768px) {
-    .container-studio {
-      @apply px-6;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .container-studio {
-      @apply px-8;
-    }
-  }
-  
-  .heading-hero {
-    @apply font-display-elegant text-4xl;
+  .heading-dark {
+    @apply font-display-dark text-4xl text-white;
   }
   
   @media (min-width: 640px) {
-    .heading-hero {
+    .heading-dark {
       @apply text-5xl;
     }
   }
   
   @media (min-width: 768px) {
-    .heading-hero {
+    .heading-dark {
       @apply text-6xl;
     }
   }
   
   @media (min-width: 1024px) {
-    .heading-hero {
+    .heading-dark {
       @apply text-7xl;
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .heading-hero {
-      @apply text-8xl;
-    }
-  }
-  
-  @media (min-width: 1536px) {
-    .heading-hero {
-      @apply text-9xl;
-    }
-  }
-  
-  .heading-section {
-    @apply font-display-elegant text-2xl;
-  }
-  
-  @media (min-width: 640px) {
-    .heading-section {
-      @apply text-3xl;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .heading-section {
-      @apply text-4xl;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .heading-section {
-      @apply text-5xl;
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .heading-section {
-      @apply text-6xl;
-    }
-  }
-  
-  .text-lead {
-    @apply font-body-refined text-base text-neutral-600 leading-relaxed;
-  }
-  
-  @media (min-width: 640px) {
-    .text-lead {
-      @apply text-lg;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .text-lead {
-      @apply text-xl;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .text-lead {
-      @apply text-2xl;
     }
   }
 }
 
-/* Animations personnalisées */
-@keyframes photoReveal {
+/* Animations dark */
+@keyframes photoRevealDark {
   0% {
     opacity: 0;
     transform: scale(1.05) translateY(20px);
@@ -524,16 +306,7 @@ input, select, textarea {
   }
 }
 
-@keyframes floatGentle {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes shimmer {
+@keyframes shimmerDark {
   0% {
     background-position: -200% 0;
   }
@@ -542,17 +315,24 @@ input, select, textarea {
   }
 }
 
-/* Responsive optimizations */
+@keyframes pulseGlowMiami {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(255, 0, 110, 0.5),
+      0 0 60px rgba(0, 212, 255, 0.3);
+  }
+}
+
+/* Responsive optimizations dark */
 @media (max-width: 767px) {
-  .heading-hero {
-    @apply text-4xl leading-tight;
+  .heading-dark {
+    @apply text-3xl;
   }
   
-  .heading-section {
-    @apply text-2xl leading-tight;
-  }
-  
-  .section-padding {
+  .section-dark {
     @apply py-12 px-4;
   }
   
@@ -560,49 +340,6 @@ input, select, textarea {
   button, a {
     min-height: 44px;
     min-width: 44px;
-  }
-  
-  /* Optimize spacing for mobile */
-  .space-y-8 > * + * {
-    margin-top: 1.5rem;
-  }
-  
-  .space-y-6 > * + * {
-    margin-top: 1rem;
-  }
-  
-  /* Better mobile typography */
-  h1, h2, h3 {
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  /* Mobile-specific animations */
-  .hover-lift-gentle:active {
-    transform: translateY(-2px);
-  }
-}
-
-@media (max-width: 480px) {
-  .container-studio {
-    @apply px-3;
-  }
-  
-  .heading-hero {
-    @apply text-3xl;
-  }
-  
-  .text-lead {
-    @apply text-sm;
-  }
-  
-  /* Extra small screens optimizations */
-  .grid-cols-2 {
-    gap: 0.75rem;
-  }
-  
-  .space-y-4 > * + * {
-    margin-top: 0.75rem;
   }
 }
 
@@ -613,33 +350,21 @@ input, select, textarea {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  .hover-lift-gentle:hover {
-    transform: none;
-  }
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .text-warm,
-  .text-miami,
-  .text-elegant {
+  .text-miami-gradient,
+  .text-pink-gradient,
+  .text-cyan-gradient {
     background: none;
     color: currentColor;
   }
   
-  .glass-studio,
-  .glass-warm {
-    background: rgba(255, 255, 255, 0.95);
+  .glass-dark,
+  .glass-dark-strong {
+    background: rgba(0, 0, 0, 0.95);
     border: 2px solid currentColor;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0A0A0A;
-    --foreground: #FAFAFA;
   }
 }
 
@@ -656,10 +381,5 @@ input, select, textarea {
   * {
     color: black !important;
     background: white !important;
-  }
-  
-  .container-studio {
-    max-width: none;
-    padding: 0;
   }
 }
